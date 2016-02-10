@@ -1,0 +1,52 @@
+package core;
+
+/**
+ * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
+ * @Description
+ */
+public enum CountryIndex {
+
+    Ontario,
+    Quebec,
+    NWTerritory,
+    Alberta,
+    Greenland,
+    EUnitedStates,
+    WUnitedStates,
+    CentralAmerica,
+    Alaska,
+    GreatBritain,
+    WEurope,
+    SEurope,
+    Ukraine,
+    NEurope,
+    Iceland,
+    Scandinavia,
+    Afghanistan,
+    India,
+    MiddleEast,
+    Japan,
+    Ural,
+    Yakutsk,
+    Kamchatka,
+    Siam,
+    Irkutsk,
+    Siberia,
+    Mongolia,
+    China,
+    EAustralia,
+    NewGuinea,
+    WAustralia,
+    Indonesia,
+    Venezuela,
+    Peru,
+    Brazil,
+    Argentina,
+    Congo,
+    NAfrica,
+    SAfrica,
+    Egypt,
+    EAfrica,
+    Madagascar,
+
+}
