@@ -2,7 +2,8 @@ package core;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
- * @Description
+ * @Description List of all the constants that will be used in the program
+ * throughout.
  */
 public class Constants {
 

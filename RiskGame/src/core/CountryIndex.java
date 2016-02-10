@@ -2,7 +2,8 @@ package core;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
- * @Description
+ * @Description Enumeration for Country. Also used to find the corresponding
+ * country object. Acts as key in dictionary.
  */
 public enum CountryIndex {
 
@@ -47,6 +48,5 @@ public enum CountryIndex {
     SAfrica,
     Egypt,
     EAfrica,
-    Madagascar,
-
+    Madagascar
 }
