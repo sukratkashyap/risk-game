@@ -6,19 +6,30 @@ package core;
  */
 public class Continent {
 
+    private final ContinentIndex _continentIndex;
     private final String _name;
     private final int _continentValues;
 
     /**
      *
+     * @param continentId id of the continent
      * @param name name of the continent
      * @param continentValue value of the continent
      */
-    public Continent(String name, int continentValue) {
+    public Continent(ContinentIndex continentId, String name, int continentValue) {
+        _continentIndex = continentId;
         _name = name;
         _continentValues = continentValue;
     }
 
+    /**
+     *
+     * @return id of the continent
+     */
+    public ContinentIndex getContinentId() {
+        return _continentIndex;
+    }
+    
     /**
      *
      * @return name of the continent
