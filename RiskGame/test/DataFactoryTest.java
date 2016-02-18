@@ -24,10 +24,10 @@ import static org.junit.Assert.*;
  */
 public class DataFactoryTest {
 
-    private Map<CountryIndex, Country> countryMap;
-    private Map<ContinentIndex, Continent> continentMap;
+    private DataFactory dataFactory;
 
     public DataFactoryTest() {
+        dataFactory = DataFactory.getInstance();
     }
 
     @BeforeClass
@@ -47,40 +47,50 @@ public class DataFactoryTest {
     }
 
     @Test
-    public void testCountryCreation() {
-        countryMap = DataFactory.GetCountryMap();
-        for (Map.Entry<CountryIndex, Country> country : countryMap.entrySet()) {
+    public void TestingCountryMapSizeAndCountryNotNull() {
+        dataFactory.GetCountryMap().entrySet().stream().forEach((country) -> {
             assertNotNull(country.getValue());
-        }
-        assertEquals(countryMap.size(), Constants.NUM_COUNTRIES);
+        });
+        assertEquals(dataFactory.GetCountryMap().size(), Constants.NUM_COUNTRIES);
     }
 
     @Test
-    public void testContinentCreation() {
-        continentMap = DataFactory.GetContinentMap();
-        for (Map.Entry<ContinentIndex, Continent> continent : continentMap.entrySet()) {
+    public void TestingContinentMapSizeAndContinentNotNull() {
+        dataFactory.GetContinentMap().entrySet().stream().forEach((continent) -> {
             assertNotNull(continent.getValue());
-        }
-        assertEquals(continentMap.size(), Constants.NUM_CONTINENTS);
+        });
+        assertEquals(dataFactory.GetContinentMap().size(), Constants.NUM_CONTINENTS);
     }
 
     @Test
-    public void testCountryMapUnModifiable() {
-        countryMap = DataFactory.GetCountryMap();
+    public void TestingCountryMapIsUnModifiable() {
+        Map<CountryIndex, Country> countryMap = dataFactory.GetCountryMap();
         try {
             countryMap.put(CountryIndex.Peru, null);
-            throw new AssertionError("Country Map is modifiable");
+            throw new AssertionError("Country Map is modifiable.");
+        } catch (UnsupportedOperationException ex) {
+
+        }
+        try {
+            countryMap.clear();
+            throw new AssertionError("Country Map is modifiable.");
         } catch (UnsupportedOperationException ex) {
 
         }
     }
 
     @Test
-    public void testContinentMapUnModifiable() {
-        continentMap = DataFactory.GetContinentMap();
+    public void TestingContinentMapIsUnModifiable() {
+        Map<ContinentIndex, Continent> continentMap = dataFactory.GetContinentMap();
         try {
             continentMap.put(ContinentIndex.Asia, null);
-            throw new AssertionError("Continent Map is modifiable");
+            throw new AssertionError("Continent Map is modifiable.");
+        } catch (UnsupportedOperationException ex) {
+
+        }
+        try {
+            continentMap.clear();
+            throw new AssertionError("Continent Map is modifiable.");
         } catch (UnsupportedOperationException ex) {
 
         }

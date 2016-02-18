@@ -13,7 +13,7 @@ public class Country {
 
     private final CountryIndex _countryId;
     private final String _name;
-    private final ContinentIndex _continentIndex;
+    private final Continent _continent;
     private final Point _countryCoOrd;
     private final List<CountryIndex> _adjacentCountryIndexList;
 
@@ -24,16 +24,16 @@ public class Country {
      *
      * @param countryId unique id for finding the country
      * @param name name of the country
-     * @param continentIndex continent of the country
+     * @param continent continent of the country
      * @param xCoOrd x coordinate of the country
      * @param yCoOrd y coordinate of the country
      * @param adjacentCountries list of adjacent countries index
      */
-    public Country(CountryIndex countryId, String name, ContinentIndex continentIndex,
+    public Country(CountryIndex countryId, String name, Continent continent,
             int xCoOrd, int yCoOrd, List<CountryIndex> adjacentCountries) {
         _countryId = countryId;
         _name = name;
-        _continentIndex = continentIndex;
+        _continent = continent;
         _countryCoOrd = new Point(xCoOrd, yCoOrd);
         _adjacentCountryIndexList = Collections.unmodifiableList(new ArrayList<>(adjacentCountries));
     }
@@ -58,16 +58,24 @@ public class Country {
      *
      * @return country's continent index
      */
-    public ContinentIndex getContinentIndex() {
-        return _continentIndex;
+    public Continent getContinent() {
+        return _continent;
     }
 
     /**
      *
-     * @return (Point) coordinate of the country
+     * @return the x coordinate of the country
      */
-    public Point getCountryCoOrd() {
-        return _countryCoOrd;
+    public int getXCoOrdinate() {
+        return _countryCoOrd.x;
+    }
+
+    /**
+     *
+     * @return the y coordinate of the country
+     */
+    public int getYCoOrdinate() {
+        return _countryCoOrd.y;
     }
 
     /**

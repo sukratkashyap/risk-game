@@ -1,5 +1,7 @@
 package core;
 
+import java.awt.Color;
+
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
  * @Description class for storing the continents and its related data.
@@ -9,17 +11,20 @@ public class Continent {
     private final ContinentIndex _continentIndex;
     private final String _name;
     private final int _continentValues;
+    private final Color _color;
 
     /**
      *
      * @param continentId id of the continent
      * @param name name of the continent
      * @param continentValue value of the continent
+     * @param color color of the continent
      */
-    public Continent(ContinentIndex continentId, String name, int continentValue) {
+    public Continent(ContinentIndex continentId, String name, int continentValue, Color color) {
         _continentIndex = continentId;
         _name = name;
         _continentValues = continentValue;
+        _color = color;
     }
 
     /**
@@ -29,7 +34,7 @@ public class Continent {
     public ContinentIndex getContinentId() {
         return _continentIndex;
     }
-    
+
     /**
      *
      * @return name of the continent
@@ -46,5 +51,13 @@ public class Continent {
      */
     public int getContinentValue() {
         return _continentValues;
+    }
+
+    /**
+     *
+     * @return color of the continent
+     */
+    public Color getColor() {
+        return _color;
     }
 }

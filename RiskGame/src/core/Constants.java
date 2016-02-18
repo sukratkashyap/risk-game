@@ -7,6 +7,7 @@ package core;
  */
 public class Constants {
 
+    //Game constant
     public static final int NUM_PLAYERS = 2;
     public static final int NUM_NEUTRALS = 4;
     public static final int NUM_PLAYERS_PLUS_NEUTRALS = NUM_PLAYERS + NUM_NEUTRALS;
@@ -16,6 +17,16 @@ public class Constants {
     public static final int INIT_UNITS_PLAYER = 36;
     public static final int INIT_UNITS_NEUTRAL = 24;
     public static final int NUM_CONTINENTS = 6;
-    public static final int FRAME_WIDTH = 1000;    // must be even
-    public static final int FRAME_HEIGHT = 600;
+
+    //Graphic constant
+    public static final int NODE_RADIUS = 12;
+    public static final int NODE_DIAMETER = NODE_RADIUS * 2;
+    public static final int PANEL_MAP_WIDTH = 1000;
+    public static final int PANEL_MAP_HEIGHT = 650;
+    public static final int PANEL_PLAYER_STATS_WIDTH = 200;
+    public static final int PANEL_PLAYER_STATS_HEIGHT = PANEL_MAP_HEIGHT;
+    public static final int PANEL_MESSAGE_WIDTH = PANEL_MAP_WIDTH + PANEL_PLAYER_STATS_WIDTH;
+    public static final int PANEL_MESSAGE_HEIGHT = 75;
+    public static final int FRAME_WIDTH = PANEL_MESSAGE_WIDTH;
+    public static final int FRAME_HEIGHT = PANEL_MESSAGE_HEIGHT + PANEL_PLAYER_STATS_HEIGHT;
 }
