@@ -1,4 +1,4 @@
-package core;
+package game.core;
 
 /**
  * @author Sukrat Kashyap (14200092)

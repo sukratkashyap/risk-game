@@ -1,11 +1,11 @@
 package game.data;
 
-import core.Continent;
-import core.ContinentIndex;
-import core.Country;
-import core.CountryIndex;
-import core.DataFactory;
-import core.Player;
+import game.core.Continent;
+import game.core.ContinentIndex;
+import game.core.Country;
+import game.core.CountryIndex;
+import game.core.DataFactory;
+import game.core.Player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

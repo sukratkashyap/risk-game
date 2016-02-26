@@ -1,7 +1,7 @@
 package game.graphic;
 
-import core.Constants;
-import core.Player;
+import game.core.Constants;
+import game.core.Player;
 import game.data.GetQuery;
 import java.awt.Color;
 import java.awt.GridLayout;

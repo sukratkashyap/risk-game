@@ -1,6 +1,6 @@
 package game.graphic;
 
-import core.Constants;
+import game.core.Constants;
 import game.data.GetQuery;
 import java.awt.Color;
 import java.util.ArrayList;

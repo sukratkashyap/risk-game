@@ -1,6 +1,6 @@
 package game.graphic;
 
-import core.Country;
+import game.core.Country;
 import game.data.GetQuery;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

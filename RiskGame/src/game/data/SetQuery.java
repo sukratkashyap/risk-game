@@ -1,12 +1,12 @@
 package game.data;
 
-import core.Constants;
-import core.Country;
-import core.CountryIndex;
-import core.DataFactory;
-import core.Player;
-import core.PlayerType;
-import core.Result;
+import game.core.Constants;
+import game.core.Country;
+import game.core.CountryIndex;
+import game.core.DataFactory;
+import game.core.Player;
+import game.core.PlayerType;
+import game.core.Result;
 import java.util.List;
 import java.util.Map;
 

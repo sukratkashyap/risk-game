@@ -18,6 +18,6 @@ public class RiskGame {
 
     protected RiskGame() {
         RiskFrame riskFrame = new RiskFrame();
-        riskFrame.GetPlayerNames();
+       
     }
 }

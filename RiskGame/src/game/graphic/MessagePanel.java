@@ -1,6 +1,6 @@
 package game.graphic;
 
-import core.Constants;
+import game.core.Constants;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;

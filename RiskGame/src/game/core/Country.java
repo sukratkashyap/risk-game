@@ -1,4 +1,4 @@
-package core;
+package game.core;
 
 import java.awt.Point;
 import java.util.ArrayList;

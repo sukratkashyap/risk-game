@@ -1,8 +1,8 @@
 package game.graphic;
 
-import core.Constants;
-import core.Country;
-import core.Result;
+import game.core.Constants;
+import game.core.Country;
+import game.core.Result;
 import game.data.GetQuery;
 import game.data.SetQuery;
 import java.awt.Color;
@@ -33,6 +33,7 @@ public class RiskFrame extends JFrame {
     private PlayerStatsPanel _playerStatsPanel;
     private RiskMapPanel _riskMapPanel;
     private MessagePanel _messagePanel;
+    private CommandPanel _commandPanel;
 
     public RiskFrame() {
         super("RISK GAME");
@@ -44,10 +45,12 @@ public class RiskFrame extends JFrame {
         this.setVisible(true);
 
         _playerStatsPanel = (PlayerStatsPanel) this.getContentPane().add(new PlayerStatsPanel(0,
-                Constants.PANEL_MESSAGE_HEIGHT));
+                0));
         _riskMapPanel = (RiskMapPanel) this.getContentPane().add(new RiskMapPanel(Constants.PANEL_PLAYER_STATS_WIDTH,
-                Constants.PANEL_MESSAGE_HEIGHT));
-        _messagePanel = (MessagePanel) this.getContentPane().add(new MessagePanel(0, 0));
+                0));
+        _messagePanel = (MessagePanel) this.getContentPane().add(new MessagePanel(0, 600));
+        _commandPanel = (CommandPanel) this.getContentPane().add(new CommandPanel(0, 710));
+
     }
 
     @Override
@@ -59,26 +62,7 @@ public class RiskFrame extends JFrame {
     }
 
     public void GetPlayerNames() {
-        String player1Name = DialogBox.TakeInputAsString(this, "Please enter player 1 name?");
-        String player2Name = DialogBox.TakeInputAsString(this, "Please enter player 2 name?");
 
-        SetQuery gq = new SetQuery();
-        gq.AddMainPlayer(player1Name);
-        Result result = gq.AddMainPlayer(player2Name);
-        while (!result.IsSuccessful()) {
-            DialogBox.ShowError(this, result.ErrorMsg());
-            player2Name = DialogBox.TakeInputAsString(this, "Please enter player 2 name?");
-            result = gq.AddMainPlayer(player2Name);
-        }
-        gq.AddNeutralPlayer("n1");
-        gq.AddNeutralPlayer("n2");
-        gq.AddNeutralPlayer("n3");
-        gq.AddNeutralPlayer("n4");
-
-        GetQuery dq = new GetQuery();
-        _playerStatsPanel.RefreshTheStat();
-        gq.AssignCountryToPlayer();
-        _riskMapPanel.repaint();
     }
 
 }

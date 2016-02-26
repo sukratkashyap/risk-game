@@ -1,7 +1,7 @@
 package game.graphic;
 
-import core.Constants;
-import core.Country;
+import game.core.Constants;
+import game.core.Country;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;

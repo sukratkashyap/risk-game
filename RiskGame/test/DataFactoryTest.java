@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-import core.Constants;
-import core.Continent;
-import core.ContinentIndex;
-import core.Country;
-import core.CountryIndex;
-import core.DataFactory;
+import game.core.Constants;
+import game.core.Continent;
+import game.core.ContinentIndex;
+import game.core.Country;
+import game.core.CountryIndex;
+import game.core.DataFactory;
 import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
