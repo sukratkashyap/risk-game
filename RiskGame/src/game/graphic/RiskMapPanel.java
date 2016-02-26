@@ -1,7 +1,7 @@
 package game.graphic;
 
 import core.Constants;
-import game.data.DataQuery;
+import game.data.GetQuery;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class RiskMapPanel extends JPanel {
 
         _lineComponent = new LineComponent(Constants.PANEL_MAP_WIDTH, Constants.PANEL_MAP_HEIGHT);
         this.add(_lineComponent, 1, 0);
-        DataQuery query = new DataQuery();
+        GetQuery query = new GetQuery();
         query.getCountryList().stream().forEach((country) -> {
             CountryNodeComponent comp = new CountryNodeComponent(country);
             this.add(comp, 2, 0);

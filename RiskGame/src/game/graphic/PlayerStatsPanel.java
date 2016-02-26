@@ -2,7 +2,7 @@ package game.graphic;
 
 import core.Constants;
 import core.Player;
-import game.data.DataQuery;
+import game.data.GetQuery;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class PlayerStatsPanel extends JPanel {
     }
 
     public void RefreshTheStat() {
-        DataQuery dq = new DataQuery();
+        GetQuery dq = new GetQuery();
         List<Player> playerList = dq.getPlayerList();
         int i = 0;
         for (Player player : playerList) {

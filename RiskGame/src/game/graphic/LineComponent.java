@@ -1,7 +1,7 @@
 package game.graphic;
 
 import core.Country;
-import game.data.DataQuery;
+import game.data.GetQuery;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -29,7 +29,7 @@ public class LineComponent extends JComponent {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 
-        DataQuery query = new DataQuery();
+        GetQuery query = new GetQuery();
         query.getCountryList().stream()
                 .forEach((country) -> {
                     query.getCountryList(country.getAdjacentCountryIndexList())

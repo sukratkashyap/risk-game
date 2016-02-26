@@ -14,12 +14,12 @@ import java.util.Map;
  * @author Sukrat Kashyap (14200092)
  * @Description
  */
-public class GameQuery {
+public class SetQuery {
 
     private final DataFactory _dataFactory;
     private Result _result;
 
-    public GameQuery() {
+    public SetQuery() {
         _dataFactory = DataFactory.getInstance();
     }
 
@@ -67,7 +67,7 @@ public class GameQuery {
     public void AssignCountryToPlayer() {
         int playerIndex = 0;
         int countryIndex = 0;
-        DataQuery dq = new DataQuery();
+        GetQuery dq = new GetQuery();
         List<Country> countryList = dq.getCountryList();
         List<Player> playerList = dq.getPlayerList();
         for (Player player : playerList) {

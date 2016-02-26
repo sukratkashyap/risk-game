@@ -16,11 +16,11 @@ import java.util.Map;
  * @Description An abstraction on the country and continent map. this class
  * gives various methods to search country or continent
  */
-public class DataQuery {
+public class GetQuery {
 
     private final DataFactory _dataFactory;
 
-    public DataQuery() {
+    public GetQuery() {
         _dataFactory = DataFactory.getInstance();
     }
 

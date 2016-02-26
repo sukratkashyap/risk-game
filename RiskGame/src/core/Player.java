@@ -7,6 +7,8 @@ package core;
  */
 public class Player {
 
+    private final int _nodeColor;
+    private int _numberOfArmies;
     private final String _name;
     private final PlayerType _playerType;
 
@@ -14,10 +16,44 @@ public class Player {
      *
      * @param name name of the player
      * @param playerType the type of player
+     * @param color the color that represent the player
+     * @param noOfArmies the number of armies in the field
      */
-    public Player(String name, PlayerType playerType) {
+    public Player(String name, PlayerType playerType, int color, int noOfArmies) {
         _name = name;
         _playerType = playerType;
+        _nodeColor = color;
+        _numberOfArmies = noOfArmies;
+    }
+
+    public Player(String name, PlayerType playerType) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     *
+     * @set number of the armies
+     */
+    public int setNoOfArmies(int numberOfArmies) {
+        _numberOfArmies = numberOfArmies;
+        return _numberOfArmies;
+
+    }
+
+    /**
+     *
+     * @return number of the armies
+     */
+    public int getNoOfArmies() {
+        return _numberOfArmies;
+    }
+
+    /**
+     *
+     * @return color of the node
+     */
+    public int getColor() {
+        return _nodeColor;
     }
 
     /**

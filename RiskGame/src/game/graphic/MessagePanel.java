@@ -13,11 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
-
 /**
- * @author Sukrat Kashyap (14200092)
+ * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
  * @Description this class is used to display message on the screen
  */
+
 public class MessagePanel extends JPanel {
 
     private GridLayout _gridLayout;

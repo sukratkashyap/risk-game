@@ -3,8 +3,8 @@ package game.graphic;
 import core.Constants;
 import core.Country;
 import core.Result;
-import game.data.DataQuery;
-import game.data.GameQuery;
+import game.data.GetQuery;
+import game.data.SetQuery;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -62,7 +62,7 @@ public class RiskFrame extends JFrame {
         String player1Name = DialogBox.TakeInputAsString(this, "Please enter player 1 name?");
         String player2Name = DialogBox.TakeInputAsString(this, "Please enter player 2 name?");
 
-        GameQuery gq = new GameQuery();
+        SetQuery gq = new SetQuery();
         gq.AddMainPlayer(player1Name);
         Result result = gq.AddMainPlayer(player2Name);
         while (!result.IsSuccessful()) {
@@ -75,7 +75,7 @@ public class RiskFrame extends JFrame {
         gq.AddNeutralPlayer("n3");
         gq.AddNeutralPlayer("n4");
 
-        DataQuery dq = new DataQuery();
+        GetQuery dq = new GetQuery();
         _playerStatsPanel.RefreshTheStat();
         gq.AssignCountryToPlayer();
         _riskMapPanel.repaint();
