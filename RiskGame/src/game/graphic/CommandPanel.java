@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
+ * @Description enum for the type of player
  */
 package game.graphic;
 
@@ -18,8 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 /**
- *
- * @author Ben
+ * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
+ * @Description enum for the type of player
  */
 public class CommandPanel extends JPanel {
 
