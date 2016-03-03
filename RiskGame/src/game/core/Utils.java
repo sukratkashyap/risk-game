@@ -7,7 +7,7 @@ package game.core;
  */
 public class Utils {
 
-    public static String EncodeHtml(String htmlString) {
+    public static String encodeHtml(String htmlString) {
         StringBuilder builder = new StringBuilder();
         builder.append("<html>");
         builder.append("<body>");

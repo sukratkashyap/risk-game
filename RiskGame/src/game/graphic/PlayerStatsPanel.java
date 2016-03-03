@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  * @Description this class shows the player stats and other info related to the
  * game
  */
-public class PlayerStatsPanel extends JPanel {
+public class PlayerStatsPanel extends JPanel implements IRefreshable {
 
     private List<JLabel> _labelList = new ArrayList<JLabel>() {
         {
@@ -30,11 +30,10 @@ public class PlayerStatsPanel extends JPanel {
     };
     private GridLayout _gridLayout;
 
-    public PlayerStatsPanel(int x, int y) {
+    public PlayerStatsPanel(int x, int y, int width, int height) {
         super();
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBounds(x, y,
-                Constants.PANEL_PLAYER_STATS_WIDTH, Constants.PANEL_PLAYER_STATS_HEIGHT);
+        this.setBounds(x, y, width, height);
         this.setVisible(true);
 
         _gridLayout = new GridLayout(_labelList.size(), 1);
@@ -46,6 +45,17 @@ public class PlayerStatsPanel extends JPanel {
     }
 
     public void RefreshTheStat() {
+        GetQuery dq = new GetQuery();
+        List<Player> playerList = dq.getPlayerList();
+        int i = 0;
+        for (Player player : playerList) {
+            _labelList.get(i).setText(player.toString());
+            i++;
+        }
+    }
+
+    @Override
+    public void refresh() {
         GetQuery dq = new GetQuery();
         List<Player> playerList = dq.getPlayerList();
         int i = 0;

@@ -1,11 +1,14 @@
 package game.data;
 
+import game.core.Card;
+import game.core.CardType;
 import game.core.Continent;
 import game.core.ContinentIndex;
 import game.core.Country;
 import game.core.CountryIndex;
 import game.core.DataFactory;
 import game.core.Player;
+import game.core.PlayerType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -30,7 +33,7 @@ public class GetQuery {
      */
     public List<Country> getCountryList() {
         List<Country> countryList = new ArrayList<>();
-        _dataFactory.GetCountryMap().entrySet().stream()
+        _dataFactory.getCountryMap().entrySet().stream()
                 .forEach((countryMapElem) -> {
                     countryList.add(countryMapElem.getValue());
                 });
@@ -43,7 +46,7 @@ public class GetQuery {
      * @return gives list of countries bases on the country ids passd
      */
     public List<Country> getCountryList(List<CountryIndex> countryIdList) {
-        Map<CountryIndex, Country> countryMap = _dataFactory.GetCountryMap();
+        Map<CountryIndex, Country> countryMap = _dataFactory.getCountryMap();
         List<Country> countryList = new ArrayList<>();
         countryIdList.stream()
                 .filter((countryId) -> (countryMap.containsKey(countryId)))
@@ -59,7 +62,7 @@ public class GetQuery {
      * @return the country object corresponding to countryId
      */
     public Country getCountry(CountryIndex countryId) {
-        Map<CountryIndex, Country> countryMap = _dataFactory.GetCountryMap();
+        Map<CountryIndex, Country> countryMap = _dataFactory.getCountryMap();
         if (countryMap.containsKey(countryId)) {
             return countryMap.get(countryId);
         } else {
@@ -73,7 +76,7 @@ public class GetQuery {
      * @return Continent which has the continent index
      */
     public Continent getContinent(ContinentIndex continentId) {
-        Map<ContinentIndex, Continent> continentMap = _dataFactory.GetContinentMap();
+        Map<ContinentIndex, Continent> continentMap = _dataFactory.getContinentMap();
         if (continentMap.containsKey(continentId)) {
             return continentMap.get(continentId);
         } else {
@@ -87,8 +90,19 @@ public class GetQuery {
      */
     public List<Player> getPlayerList() {
         List<Player> playerList = new ArrayList<>();
-        _dataFactory.GetPlayerMap().entrySet()
+        _dataFactory.getPlayerMap().entrySet()
                 .stream()
+                .forEach((player) -> {
+                    playerList.add(player.getValue());
+                });
+        return Collections.unmodifiableList(playerList);
+    }
+
+    public List<Player> getPlayerList(PlayerType playerType) {
+        List<Player> playerList = new ArrayList<>();
+        _dataFactory.getPlayerMap().entrySet()
+                .stream()
+                .filter((player) -> player.getValue().getPlayerType() == playerType)
                 .forEach((player) -> {
                     playerList.add(player.getValue());
                 });
@@ -101,11 +115,35 @@ public class GetQuery {
      * @return the player whose name has been passed
      */
     public Player getPlayer(String playerName) {
-        Map<String, Player> playerMap = _dataFactory.GetPlayerMap();
+        Map<String, Player> playerMap = _dataFactory.getPlayerMap();
         if (playerMap.containsKey(playerName)) {
             return playerMap.get(playerName);
         } else {
             return null;
         }
     }
+
+    public List<Player> getOrderedMainPlayerList() {
+        List<Player> playerList = new ArrayList<>();
+        _dataFactory.getPlayerMap().entrySet()
+                .stream()
+                .filter((player) -> player.getValue().getPlayerType() == PlayerType.MainPlayer)
+                .sorted((p1, p2) -> Integer.compare(p1.getValue().getOrder(), p2.getValue().getOrder()))
+                .forEach((player) -> {
+                    playerList.add(player.getValue());
+                });
+        return Collections.unmodifiableList(playerList);
+    }
+
+    public List<String> getCountryNameListByPlayerName(String playerName) {
+        List<String> countryNameList = new ArrayList<>();
+        _dataFactory.getCountryMap().entrySet()
+                .stream()
+                .filter((c) -> c.getValue().getOwnerOfTheCountry().getName().equals(playerName))
+                .forEach((c) -> {
+                    countryNameList.add(c.getValue().getName());
+                });
+        return Collections.unmodifiableList(countryNameList);
+    }
+
 }

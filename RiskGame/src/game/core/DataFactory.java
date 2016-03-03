@@ -19,22 +19,29 @@ public class DataFactory {
 
     private Map<ContinentIndex, Continent> _continentMap = new ConcurrentHashMap<>();
     private Map<CountryIndex, Country> _countryMap = new ConcurrentHashMap<>();
+    private Map<String, Country> _countryNameMap = new ConcurrentHashMap<>();
     private Map<String, Player> _playerMap = new ConcurrentHashMap<>(Constants.NUM_PLAYERS);
+    private Map<String, Card> _cardMap = new ConcurrentHashMap<>();
 
     private DataFactory() {
         //creating continentMap first
-        CreateContinentList().stream()
+        createContinentList().stream()
                 .forEach((continent) -> {
                     _continentMap.put(continent.getContinentId(), continent);
                 });
         _continentMap = Collections.unmodifiableMap(_continentMap);
 
         //creating countryMap
-        CreateCountryList().stream()
+        createCountryList().stream()
                 .forEach((country) -> {
                     _countryMap.put(country.getCountryId(), country);
+                    _countryNameMap.put(country.getName(), country);
+                    _cardMap.put(country.getName(), new Card(country.getName(), CardType.Territory));
                 });
+        _cardMap.put("wild1", new Card("wild1", CardType.Wild));
+        _cardMap.put("wild2", new Card("wild2", CardType.Wild));
         _countryMap = Collections.unmodifiableMap(_countryMap);
+        _cardMap = Collections.unmodifiableMap(_cardMap);
     }
 
     public static DataFactory getInstance() {
@@ -47,7 +54,7 @@ public class DataFactory {
      *
      * @return (Map)unmodifiable of Continents
      */
-    public Map<ContinentIndex, Continent> GetContinentMap() {
+    public Map<ContinentIndex, Continent> getContinentMap() {
         return _continentMap;
     }
 
@@ -57,15 +64,23 @@ public class DataFactory {
      *
      * @return (Map)unmodifiable of country
      */
-    public Map<CountryIndex, Country> GetCountryMap() {
+    public Map<CountryIndex, Country> getCountryMap() {
         return _countryMap;
     }
 
-    public Map<String, Player> GetPlayerMap() {
+    public Map<String, Country> getCountryNameMap() {
+        return _countryNameMap;
+    }
+    
+    public Map<String, Player> getPlayerMap() {
         return _playerMap;
     }
 
-    private List<Continent> CreateContinentList() {
+    public Map<String, Card> getCardMap() {
+        return _cardMap;
+    }
+
+    private List<Continent> createContinentList() {
         List<Continent> continentList = new ArrayList<>(Constants.NUM_CONTINENTS);
 
         continentList.add(new Continent(ContinentIndex.NAmerica, "North America", 5, Color.RED));
@@ -78,7 +93,7 @@ public class DataFactory {
         return continentList;
     }
 
-    private List<Country> CreateCountryList() {
+    private List<Country> createCountryList() {
         List<Country> countryList = new ArrayList<>(Constants.NUM_COUNTRIES);
 
         countryList.add(new Country(CountryIndex.Ontario, "Ontario", _continentMap.get(ContinentIndex.NAmerica), 191, 150, new ArrayList<CountryIndex>() {

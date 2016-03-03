@@ -1,20 +1,16 @@
-/**
- * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
- * @Description enum for the type of player
- */
 package game.graphic;
 
-import game.core.Constants;
-import game.core.Player;
-import game.data.GetQuery;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SpringLayout;
+import javax.swing.JTextField;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
@@ -22,21 +18,46 @@ import javax.swing.SpringLayout;
  */
 public class CommandPanel extends JPanel {
 
-    private GridLayout _gridLayout;
-    private JLabel _label;
+    private JTextField _textField;
+    private List<String> _inputList = new ArrayList<String>();
 
-    public CommandPanel(int x, int y) {
+    public CommandPanel(int x, int y, int width, int height) {
         super();
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBounds(x, y,
-                Constants.PANEL_MESSAGE_WIDTH, Constants.PANEL_MESSAGE_HEIGHT);
-        this.setLayout(new SpringLayout());
+        this.setBounds(x, y, width, height);
+        this.setLayout(new BorderLayout());
         this.setVisible(true);
-        
-       _gridLayout = new GridLayout(1, 1);
-        this.setLayout(_gridLayout);
-        _label = new JLabel();
-        _label.setHorizontalAlignment((int) JLabel.CENTER_ALIGNMENT);
-        this.add(_label);
+
+        _textField = new JTextField();
+        _textField.addActionListener(new TextBoxActionListener());
+        this.add(_textField, BorderLayout.CENTER);
+    }
+
+    public String getCommand() {
+        String command = "";
+        synchronized (_inputList) {
+            while (_inputList.isEmpty()) {
+                try {
+                    _inputList.wait();
+                } catch (InterruptedException ex) {
+
+                }
+            }
+            command = _inputList.remove(_inputList.size() - 1);
+        }
+        return command;
+    }
+
+    class TextBoxActionListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            synchronized (_inputList) {
+                _inputList.add(_textField.getText());
+                _textField.setText("");
+                _inputList.notify();
+            }
+        }
+
     }
 }

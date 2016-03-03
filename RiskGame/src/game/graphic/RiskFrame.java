@@ -1,37 +1,19 @@
 package game.graphic;
 
 import game.core.Constants;
-import game.core.Country;
-import game.core.Result;
-import game.data.GetQuery;
-import game.data.SetQuery;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Point;
 import java.awt.RenderingHints;
-import java.util.List;
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.SpringLayout;
-import javax.swing.SwingWorker;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
  * @Description Frame for the risk game
  */
-public class RiskFrame extends JFrame {
+public class RiskFrame extends JFrame implements IRefreshable {
 
     private PlayerStatsPanel _playerStatsPanel;
-    private RiskMapPanel _riskMapPanel;
+    private MapPanel _mapPanel;
     private MessagePanel _messagePanel;
     private CommandPanel _commandPanel;
 
@@ -41,15 +23,17 @@ public class RiskFrame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setResizable(false);
-        this.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
+        this.setSize(1000 + 200 + 5, 580 + 100 + 50);
         this.setVisible(true);
 
-        _playerStatsPanel = (PlayerStatsPanel) this.getContentPane().add(new PlayerStatsPanel(0,
-                0));
-        _riskMapPanel = (RiskMapPanel) this.getContentPane().add(new RiskMapPanel(Constants.PANEL_PLAYER_STATS_WIDTH,
-                0));
-        _messagePanel = (MessagePanel) this.getContentPane().add(new MessagePanel(0, 600));
-        _commandPanel = (CommandPanel) this.getContentPane().add(new CommandPanel(0, 710));
+        _playerStatsPanel = (PlayerStatsPanel) this.getContentPane()
+                .add(new PlayerStatsPanel(0, 0, 200, 580));
+        _mapPanel = (MapPanel) this.getContentPane()
+                .add(new MapPanel(201, 0, 1000, 580));
+        _messagePanel = (MessagePanel) this.getContentPane()
+                .add(new MessagePanel(0, 581, 1001 + 201 + 1, 100));
+        _commandPanel = (CommandPanel) this.getContentPane()
+                .add(new CommandPanel(0, 581 + 101, 1000 + 200, 20));
 
     }
 
@@ -61,8 +45,19 @@ public class RiskFrame extends JFrame {
         g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
     }
 
-    public void GetPlayerNames() {
-
+    public CommandPanel getCommandPanel() {
+        return _commandPanel;
     }
 
+    public MessagePanel getMessagePanel() {
+        return _messagePanel;
+    }
+
+    @Override
+    public void refresh() {
+        this.repaint();
+        this.revalidate();
+        _mapPanel.refresh();
+        _playerStatsPanel.refresh();
+    }
 }

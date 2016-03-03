@@ -1,5 +1,7 @@
 package game.data;
 
+import game.core.Card;
+import game.core.CardType;
 import game.core.Constants;
 import game.core.Country;
 import game.core.CountryIndex;
@@ -17,7 +19,6 @@ import java.util.Map;
 public class SetQuery {
 
     private final DataFactory _dataFactory;
-    private Result _result;
 
     public SetQuery() {
         _dataFactory = DataFactory.getInstance();
@@ -25,64 +26,50 @@ public class SetQuery {
 
     /**
      *
-     * @param name name of the player (Main player)
+     * @param name name of the player
+     * @param noOfArmies no of armies the player should initially have
+     * @param playerType type of player whether neutral or main
      * @return result telling whether the operation was successful
      */
-    public Result AddMainPlayer(String name) {
-        Player player = new Player(name, PlayerType.MainPlayer);
-        Map<String, Player> playerMap = _dataFactory.GetPlayerMap();
+    public Result<Player> addPlayer(String name, int noOfArmies, PlayerType playerType) {
+        Result<Player> result;
+        Map<String, Player> playerMap = _dataFactory.getPlayerMap();
 
+        Player player = new Player(name, playerType,
+                Constants.COLOR_PLAYER[playerMap.size()], noOfArmies);
         if (playerMap.containsKey(name)) {
-            _result = new Result(false, "Player already exists!");
+            result = new Result<>(false, "Player already exists!", null);
         } else {
             playerMap.put(player.getName(), player);
-            _result = new Result(true, "");
+            result = new Result<>(true, "", player);
         }
 
-        return _result;
+        return result;
     }
 
-    /**
-     *
-     * @param name name of the player (Neutral player)
-     * @return result telling whether the operation was successful
-     */
-    public Result AddNeutralPlayer(String name) {
-        Player player = new Player(name, PlayerType.NeutralPlayer);
-        Map<String, Player> playerMap = _dataFactory.GetPlayerMap();
+    public Card assignRandomCardToPlayer(String playerName) {
+        Player player = _dataFactory.getPlayerMap().get(playerName);
+        Card card = _dataFactory.getCardMap().entrySet()
+                .stream()
+                .filter((cardEntry) -> cardEntry.getValue().getCardType() == CardType.Territory)
+                .filter((cardEntry) -> cardEntry.getValue().getWithPlayer() == false)
+                .findAny().get().getValue();
+        player.addCard(card);
+        card.setWithPlayer(true);
 
-        if (playerMap.containsKey(name)) {
-            _result = new Result(false, "Player already exists!");
-        } else {
-            playerMap.put(player.getName(), player);
-            _result = new Result(true, "");
-        }
-
-        return _result;
+        //setting the country to the owner
+        Country country = _dataFactory.getCountryNameMap().get(card.getCountryName());
+        country.setOwnerOfTheCountry(player);
+        country.setArmyInCountry(1);
+        player.setNoOfArmies(player.getNoOfArmies() - 1);
+        return card;
     }
 
-    /**
-     * assign countries to the player
-     */
-    public void AssignCountryToPlayer() {
-        int playerIndex = 0;
-        int countryIndex = 0;
-        GetQuery dq = new GetQuery();
-        List<Country> countryList = dq.getCountryList();
-        List<Player> playerList = dq.getPlayerList();
-        for (Player player : playerList) {
-            int initCountryPlayer;
-            if (player.getPlayerType() == PlayerType.MainPlayer) {
-                initCountryPlayer = Constants.INIT_COUNTRIES_PLAYER;
-            } else {
-                initCountryPlayer = Constants.INIT_COUNTRIES_NEUTRAL;
-            }
-
-            for (int i = 0; i < initCountryPlayer; i++) {
-                countryList.get(countryIndex).setOwnerOfTheCountry(player);
-                countryList.get(countryIndex).setArmyInCountry(1);
-                countryIndex++;
-            }
-        }
+    public Result addUnitToCountry(String playerName, String countryName, int units) {
+        Country country = _dataFactory.getCountryNameMap().get(countryName);
+        Player player = _dataFactory.getPlayerMap().get(playerName);
+        country.setArmyInCountry(country.getArmyInCountry() + units);
+        player.setNoOfArmies(player.getNoOfArmies() - units);
+        return new Result(true, "");
     }
 }

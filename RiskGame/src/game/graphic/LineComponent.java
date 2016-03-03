@@ -15,7 +15,7 @@ import javax.swing.JComponent;
  * @Description this class represents all the lines connecting each and every
  * country node on the risk map
  */
-public class LineComponent extends JComponent {
+public class LineComponent extends JComponent implements IRefreshable {
 
     public LineComponent(int width, int height) {
         super();
@@ -41,5 +41,11 @@ public class LineComponent extends JComponent {
                         g2.draw(line);
                     });
                 });
+    }
+
+    @Override
+    public void refresh() {
+        this.repaint();
+        this.revalidate();
     }
 }

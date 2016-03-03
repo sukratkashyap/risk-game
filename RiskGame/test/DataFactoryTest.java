@@ -48,23 +48,23 @@ public class DataFactoryTest {
 
     @Test
     public void TestingCountryMapSizeAndCountryNotNull() {
-        dataFactory.GetCountryMap().entrySet().stream().forEach((country) -> {
+        dataFactory.getCountryMap().entrySet().stream().forEach((country) -> {
             assertNotNull(country.getValue());
         });
-        assertEquals(dataFactory.GetCountryMap().size(), Constants.NUM_COUNTRIES);
+        assertEquals(dataFactory.getCountryMap().size(), Constants.NUM_COUNTRIES);
     }
 
     @Test
     public void TestingContinentMapSizeAndContinentNotNull() {
-        dataFactory.GetContinentMap().entrySet().stream().forEach((continent) -> {
+        dataFactory.getContinentMap().entrySet().stream().forEach((continent) -> {
             assertNotNull(continent.getValue());
         });
-        assertEquals(dataFactory.GetContinentMap().size(), Constants.NUM_CONTINENTS);
+        assertEquals(dataFactory.getContinentMap().size(), Constants.NUM_CONTINENTS);
     }
 
     @Test
     public void TestingCountryMapIsUnModifiable() {
-        Map<CountryIndex, Country> countryMap = dataFactory.GetCountryMap();
+        Map<CountryIndex, Country> countryMap = dataFactory.getCountryMap();
         try {
             countryMap.put(CountryIndex.Peru, null);
             throw new AssertionError("Country Map is modifiable.");
@@ -81,7 +81,7 @@ public class DataFactoryTest {
 
     @Test
     public void TestingContinentMapIsUnModifiable() {
-        Map<ContinentIndex, Continent> continentMap = dataFactory.GetContinentMap();
+        Map<ContinentIndex, Continent> continentMap = dataFactory.getContinentMap();
         try {
             continentMap.put(ContinentIndex.Asia, null);
             throw new AssertionError("Continent Map is modifiable.");
