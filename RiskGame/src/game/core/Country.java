@@ -16,6 +16,7 @@ public class Country {
     private final Continent _continent;
     private final Point _countryCoOrd;
     private final List<CountryIndex> _adjacentCountryIndexList;
+    private final String _abbreviations;
 
     private Player _ownerOfTheCountry = null;
     private int _armyInCountry = 0;
@@ -23,19 +24,25 @@ public class Country {
     /**
      *
      * @param countryId unique id for finding the country
+     * @param abbreviations shortcut name of the country
      * @param name name of the country
      * @param continent continent of the country
      * @param xCoOrd x coordinate of the country
      * @param yCoOrd y coordinate of the country
      * @param adjacentCountries list of adjacent countries index
      */
-    public Country(CountryIndex countryId, String name, Continent continent,
+    public Country(CountryIndex countryId, String abbreviations, String name, Continent continent,
             int xCoOrd, int yCoOrd, List<CountryIndex> adjacentCountries) {
         _countryId = countryId;
+        _abbreviations = abbreviations;
         _name = name;
         _continent = continent;
         _countryCoOrd = new Point(xCoOrd, yCoOrd);
         _adjacentCountryIndexList = Collections.unmodifiableList(new ArrayList<>(adjacentCountries));
+    }
+
+    Country(CountryIndex countryIndex, String ont, String ontario, Continent get, int i, int i0, ArrayList<CountryIndex> arrayList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -44,6 +51,14 @@ public class Country {
      */
     public CountryIndex getCountryId() {
         return _countryId;
+    }
+
+    /**
+     *
+     * @return abbreviations of the Country
+     */
+    public String getAbbreviations() {
+        return _abbreviations;
     }
 
     /**

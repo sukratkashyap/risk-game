@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
- * @Description 
+ * @Description
  */
 public class GamePlay {
 
@@ -74,7 +74,7 @@ public class GamePlay {
         _gui.refresh();
     }
 
-    public void rollDiceAndSetInforcements() {
+    public void rollDice() {
         _gui.refresh();
         GetQuery gq = new GetQuery();
         SetQuery sq = new SetQuery();
@@ -100,8 +100,20 @@ public class GamePlay {
                 mainPlayerList.get(1).setOrder(0);
                 break;
             }
+
             _gui.addResult("Its a draw! Rolling again!" + rollForPlayer2);
+
         }
+        _gui.refresh();
+
+    }
+
+    public void setInforcements() {
+        _gui.refresh();
+        GetQuery gq = new GetQuery();
+        SetQuery sq = new SetQuery();
+        List<Player> mainPlayerList = gq.getPlayerList(PlayerType.MainPlayer);
+        List<Player> neutralPlayerList = gq.getPlayerList(PlayerType.NeutralPlayer);
         mainPlayerList = gq.getOrderedMainPlayerList();
 
         for (int i = 0; i < 9; i++) {
@@ -112,6 +124,7 @@ public class GamePlay {
                 sq.addUnitToCountry(player.getName(), countryName, 3);
 
                 _gui.refresh();
+
                 neutralPlayerList.stream()
                         .forEach((neutral) -> {
                             String question = "Where do you want to place your 1 unit army of " + neutral.getName();

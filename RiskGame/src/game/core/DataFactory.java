@@ -1,5 +1,6 @@
 package game.core;
 
+import static game.core.CountryIndex.Ontario;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +23,7 @@ public class DataFactory {
     private Map<String, Country> _countryNameMap = new ConcurrentHashMap<>();
     private Map<String, Player> _playerMap = new ConcurrentHashMap<>(Constants.NUM_PLAYERS);
     private Map<String, Card> _cardMap = new ConcurrentHashMap<>();
+    private Map<String, Country> _countryAbbreviationsMap = new ConcurrentHashMap<>();
 
     private DataFactory() {
         //creating continentMap first
@@ -36,6 +38,7 @@ public class DataFactory {
                 .forEach((country) -> {
                     _countryMap.put(country.getCountryId(), country);
                     _countryNameMap.put(country.getName(), country);
+                    _countryAbbreviationsMap.put(country.getAbbreviations(), country);
                     _cardMap.put(country.getName(), new Card(country.getName(), CardType.Territory));
                 });
         _cardMap.put("wild1", new Card("wild1", CardType.Wild));
@@ -71,7 +74,7 @@ public class DataFactory {
     public Map<String, Country> getCountryNameMap() {
         return _countryNameMap;
     }
-    
+
     public Map<String, Player> getPlayerMap() {
         return _playerMap;
     }
@@ -96,7 +99,7 @@ public class DataFactory {
     private List<Country> createCountryList() {
         List<Country> countryList = new ArrayList<>(Constants.NUM_COUNTRIES);
 
-        countryList.add(new Country(CountryIndex.Ontario, "Ontario", _continentMap.get(ContinentIndex.NAmerica), 191, 150, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Ontario, "ONT", "Ontario", _continentMap.get(ContinentIndex.NAmerica), 191, 150, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Greenland);
                 add(CountryIndex.Quebec);
@@ -107,7 +110,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Quebec, "Quebec", _continentMap.get(ContinentIndex.NAmerica), 255, 161, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Quebec, "QBE", "Quebec", _continentMap.get(ContinentIndex.NAmerica), 255, 161, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Greenland);
                 add(CountryIndex.EUnitedStates);
@@ -115,7 +118,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.NWTerritory, "NW Territory", _continentMap.get(ContinentIndex.NAmerica), 146, 86, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.NWTerritory, "NTY", "NW Territory", _continentMap.get(ContinentIndex.NAmerica), 146, 86, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Greenland);
                 add(CountryIndex.Ontario);
@@ -124,7 +127,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Alberta, "Alberta", _continentMap.get(ContinentIndex.NAmerica), 123, 144, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Alberta, "ALB", "Alberta", _continentMap.get(ContinentIndex.NAmerica), 123, 144, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.NWTerritory);
                 add(CountryIndex.Ontario);
@@ -133,7 +136,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Greenland, "Greenland", _continentMap.get(ContinentIndex.NAmerica), 314, 61, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Greenland, "GLD", "Greenland", _continentMap.get(ContinentIndex.NAmerica), 314, 61, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Iceland);
                 add(CountryIndex.Quebec);
@@ -142,7 +145,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.EUnitedStates, "E United States", _continentMap.get(ContinentIndex.NAmerica), 205, 235, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.EUnitedStates, "EUS", "E United States", _continentMap.get(ContinentIndex.NAmerica), 205, 235, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Ontario);
                 add(CountryIndex.Quebec);
@@ -151,7 +154,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.WUnitedStates, "W United States", _continentMap.get(ContinentIndex.NAmerica), 135, 219, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.WUnitedStates, "WUS", "W United States", _continentMap.get(ContinentIndex.NAmerica), 135, 219, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Alberta);
                 add(CountryIndex.Ontario);
@@ -160,7 +163,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.CentralAmerica, "Central America", _continentMap.get(ContinentIndex.NAmerica), 140, 299, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.CentralAmerica, "CAM", "Central America", _continentMap.get(ContinentIndex.NAmerica), 140, 299, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.WUnitedStates);
                 add(CountryIndex.EUnitedStates);
@@ -168,7 +171,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Alaska, "Alaska", _continentMap.get(ContinentIndex.NAmerica), 45, 89, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Alaska, "ALA", "Alaska", _continentMap.get(ContinentIndex.NAmerica), 45, 89, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.NWTerritory);
                 add(CountryIndex.Alberta);
@@ -176,7 +179,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.GreatBritain, "Great Britain", _continentMap.get(ContinentIndex.Europe), 370, 199, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.GreatBritain, "GBP", "Great Britain", _continentMap.get(ContinentIndex.Europe), 370, 199, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Iceland);
                 add(CountryIndex.Scandinavia);
@@ -185,7 +188,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.WEurope, "W Europe", _continentMap.get(ContinentIndex.Europe), 398, 280, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.WEurope, "WEU", "W Europe", _continentMap.get(ContinentIndex.Europe), 398, 280, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.GreatBritain);
                 add(CountryIndex.NEurope);
@@ -194,7 +197,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.SEurope, "S Europe", _continentMap.get(ContinentIndex.Europe), 465, 270, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.SEurope, "SEU", "S Europe", _continentMap.get(ContinentIndex.Europe), 465, 270, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.NEurope);
                 add(CountryIndex.Ukraine);
@@ -204,7 +207,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Ukraine, "Ukraine", _continentMap.get(ContinentIndex.Europe), 547, 180, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Ukraine, "UKR", "Ukraine", _continentMap.get(ContinentIndex.Europe), 547, 180, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Ural);
                 add(CountryIndex.Afghanistan);
@@ -215,7 +218,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.NEurope, "N Europe", _continentMap.get(ContinentIndex.Europe), 460, 200, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.NEurope, "NEU", "N Europe", _continentMap.get(ContinentIndex.Europe), 460, 200, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Scandinavia);
                 add(CountryIndex.Ukraine);
@@ -225,7 +228,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Iceland, "Iceland", _continentMap.get(ContinentIndex.Europe), 393, 127, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Iceland, "ICE", "Iceland", _continentMap.get(ContinentIndex.Europe), 393, 127, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Scandinavia);
                 add(CountryIndex.GreatBritain);
@@ -233,7 +236,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Scandinavia, "Scandinavia", _continentMap.get(ContinentIndex.Europe), 463, 122, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Scandinavia, "SCA", "Scandinavia", _continentMap.get(ContinentIndex.Europe), 463, 122, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Ukraine);
                 add(CountryIndex.NEurope);
@@ -241,7 +244,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Afghanistan, "Afghanistan", _continentMap.get(ContinentIndex.Asia), 628, 227, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Afghanistan, "AFG", "Afghanistan", _continentMap.get(ContinentIndex.Asia), 628, 227, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Ural);
                 add(CountryIndex.China);
@@ -251,7 +254,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.India, "India", _continentMap.get(ContinentIndex.Asia), 679, 332, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.India, "IND", "India", _continentMap.get(ContinentIndex.Asia), 679, 332, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Afghanistan);
                 add(CountryIndex.China);
@@ -260,7 +263,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.MiddleEast, "Middle East", _continentMap.get(ContinentIndex.Asia), 572, 338, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.MiddleEast, "EDE", "Middle East", _continentMap.get(ContinentIndex.Asia), 572, 338, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Ukraine);
                 add(CountryIndex.Afghanistan);
@@ -271,14 +274,14 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Japan, "Japan", _continentMap.get(ContinentIndex.Asia), 861, 213, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Japan, "JAP", "Japan", _continentMap.get(ContinentIndex.Asia), 861, 213, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Mongolia);
                 add(CountryIndex.Kamchatka);
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Ural, "Ural", _continentMap.get(ContinentIndex.Asia), 645, 152, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Ural, "URA", "Ural", _continentMap.get(ContinentIndex.Asia), 645, 152, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Siberia);
                 add(CountryIndex.China);
@@ -287,7 +290,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Yakutsk, "Yakutsk", _continentMap.get(ContinentIndex.Asia), 763, 70, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Yakutsk, "YAK", "Yakutsk", _continentMap.get(ContinentIndex.Asia), 763, 70, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Kamchatka);
                 add(CountryIndex.Irkutsk);
@@ -295,7 +298,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Kamchatka, "Kamchatka", _continentMap.get(ContinentIndex.Asia), 827, 94, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Kamchatka, "KAM", "Kamchatka", _continentMap.get(ContinentIndex.Asia), 827, 94, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Alaska);
                 add(CountryIndex.Japan);
@@ -305,7 +308,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Siam, "Siam", _continentMap.get(ContinentIndex.Asia), 751, 360, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Siam, "SIA", "Siam", _continentMap.get(ContinentIndex.Asia), 751, 360, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.China);
                 add(CountryIndex.Indonesia);
@@ -313,7 +316,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Irkutsk, "Irkutsk", _continentMap.get(ContinentIndex.Asia), 750, 140, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Irkutsk, "IRK", "Irkutsk", _continentMap.get(ContinentIndex.Asia), 750, 140, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Yakutsk);
                 add(CountryIndex.Kamchatka);
@@ -322,7 +325,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Siberia, "Siberia", _continentMap.get(ContinentIndex.Asia), 695, 108, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Siberia, "SIA", "Siberia", _continentMap.get(ContinentIndex.Asia), 695, 108, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Yakutsk);
                 add(CountryIndex.Irkutsk);
@@ -332,7 +335,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Mongolia, "Mongolia", _continentMap.get(ContinentIndex.Asia), 760, 216, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Mongolia, "MOG", "Mongolia", _continentMap.get(ContinentIndex.Asia), 760, 216, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Irkutsk);
                 add(CountryIndex.Kamchatka);
@@ -342,7 +345,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.China, "China", _continentMap.get(ContinentIndex.Asia), 735, 277, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.China, "CHN", "China", _continentMap.get(ContinentIndex.Asia), 735, 277, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Mongolia);
                 add(CountryIndex.Siam);
@@ -353,14 +356,14 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.EAustralia, "E Australia", _continentMap.get(ContinentIndex.Australia), 889, 537, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.EAustralia, "EAU", "E Australia", _continentMap.get(ContinentIndex.Australia), 889, 537, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.NewGuinea);
                 add(CountryIndex.WAustralia);
             }
         }));
 
-        countryList.add(new Country(CountryIndex.NewGuinea, "New Guinea", _continentMap.get(ContinentIndex.Australia), 850, 429, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.NewGuinea, "NWG", "New Guinea", _continentMap.get(ContinentIndex.Australia), 850, 429, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.EAustralia);
                 add(CountryIndex.WAustralia);
@@ -368,7 +371,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.WAustralia, "W Australia", _continentMap.get(ContinentIndex.Australia), 813, 526, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.WAustralia, "WAU", "W Australia", _continentMap.get(ContinentIndex.Australia), 813, 526, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.NewGuinea);
                 add(CountryIndex.EAustralia);
@@ -376,7 +379,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Indonesia, "Indonesia", _continentMap.get(ContinentIndex.Australia), 771, 454, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Indonesia, "INO", "Indonesia", _continentMap.get(ContinentIndex.Australia), 771, 454, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Siam);
                 add(CountryIndex.NewGuinea);
@@ -384,7 +387,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Venezuela, "Venezuela", _continentMap.get(ContinentIndex.SAmerica), 213, 352, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Venezuela, "VEN", "Venezuela", _continentMap.get(ContinentIndex.SAmerica), 213, 352, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.CentralAmerica);
                 add(CountryIndex.Brazil);
@@ -392,7 +395,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Peru, "Peru", _continentMap.get(ContinentIndex.SAmerica), 221, 426, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Peru, "PEU", "Peru", _continentMap.get(ContinentIndex.SAmerica), 221, 426, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Venezuela);
                 add(CountryIndex.Brazil);
@@ -400,7 +403,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Brazil, "Brazil", _continentMap.get(ContinentIndex.SAmerica), 289, 415, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Brazil, "BRA", "Brazil", _continentMap.get(ContinentIndex.SAmerica), 289, 415, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Venezuela);
                 add(CountryIndex.NAfrica);
@@ -409,14 +412,14 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Argentina, "Argentina", _continentMap.get(ContinentIndex.SAmerica), 233, 523, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Argentina, "ARG", "Argentina", _continentMap.get(ContinentIndex.SAmerica), 233, 523, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Peru);
                 add(CountryIndex.Brazil);
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Congo, "Congo", _continentMap.get(ContinentIndex.Africa), 496, 462, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Congo, "CON", "Congo", _continentMap.get(ContinentIndex.Africa), 496, 462, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.NAfrica);
                 add(CountryIndex.EAfrica);
@@ -424,7 +427,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.NAfrica, "N Africa", _continentMap.get(ContinentIndex.Africa), 440, 393, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.NAfrica, "NAF", "N Africa", _continentMap.get(ContinentIndex.Africa), 440, 393, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.WEurope);
                 add(CountryIndex.SEurope);
@@ -435,7 +438,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.SAfrica, "S Africa", _continentMap.get(ContinentIndex.Africa), 510, 532, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.SAfrica, "SAF", "S Africa", _continentMap.get(ContinentIndex.Africa), 510, 532, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Congo);
                 add(CountryIndex.EAfrica);
@@ -443,7 +446,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Egypt, "Egypt", _continentMap.get(ContinentIndex.Africa), 499, 354, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Egypt, "EGY", "Egypt", _continentMap.get(ContinentIndex.Africa), 499, 354, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.SEurope);
                 add(CountryIndex.MiddleEast);
@@ -452,7 +455,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.EAfrica, "E Africa", _continentMap.get(ContinentIndex.Africa), 547, 432, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.EAfrica, "EAF", "E Africa", _continentMap.get(ContinentIndex.Africa), 547, 432, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Egypt);
                 add(CountryIndex.MiddleEast);
@@ -463,7 +466,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.Madagascar, "Madagascar", _continentMap.get(ContinentIndex.Africa), 586, 545, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.Madagascar, "MAG", "Madagascar", _continentMap.get(ContinentIndex.Africa), 586, 545, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.SAfrica);
                 add(CountryIndex.EAfrica);
