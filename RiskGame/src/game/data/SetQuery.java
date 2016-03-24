@@ -72,4 +72,9 @@ public class SetQuery {
         player.setNoOfArmies(player.getNoOfArmies() - units);
         return new Result(true, "");
     }
+
+    public void removePlayer(String playerName) {
+        _dataFactory.getPlayerMap().containsKey(playerName);
+        _dataFactory.getPlayerMap().remove(playerName);
+    }
 }

@@ -97,6 +97,7 @@ public class CountryNodeComponent extends JComponent implements IRefreshable {
             builder.append("Player: ").append(_country.getOwnerOfTheCountry().getName());
             builder.append("<br>");
             builder.append("Armies: ").append(_country.getArmyInCountry());
+            builder.append("Enter shortcut-  ").append(_country.getAbbreviations()).append("  -for this country.");
         }
         builder.append("</body></html>");
         this.setToolTipText(builder.toString());

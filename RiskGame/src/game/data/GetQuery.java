@@ -1,7 +1,5 @@
 package game.data;
 
-import game.core.Card;
-import game.core.CardType;
 import game.core.Continent;
 import game.core.ContinentIndex;
 import game.core.Country;

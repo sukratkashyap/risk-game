@@ -19,6 +19,7 @@ public class RiskGame {
         GamePlay gamePlay = new GamePlay(new GUI());
         gamePlay.getPlayerNameFromUser();
         gamePlay.assignTerritoryCard();
-        gamePlay.rollDiceAndSetInforcements();
+        gamePlay.rollDice();
+        gamePlay.setInforcements();
     }
 }
