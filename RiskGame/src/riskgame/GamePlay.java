@@ -10,6 +10,7 @@ import game.data.GetQuery;
 import game.data.SetQuery;
 import game.data.Validations;
 import game.graphic.GUI;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -140,4 +141,20 @@ public class GamePlay {
         _gui.refresh();
     }
 
+    public void removeNoArimesPlayer() {
+        _gui.refresh();
+        SetQuery sq = new SetQuery();
+        GetQuery gq = new GetQuery();
+        gq.getPlayerList().stream().filter((player) -> (player.getNoOfArmies() == 0)).forEach((player) -> {
+            sq.removePlayer(player.getName());
+
+        });
+        _gui.refresh();
+    }
+
+    public void attackOrNot() {
+        String skip = "SKIP";
+        _gui.getInputFromUser("Who do you want to attack? Enter SKIP if you do NOT want to attack", new Validations.RequiredAndEqualTo(skip));
+
+    }
 }
