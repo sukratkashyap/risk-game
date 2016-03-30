@@ -17,17 +17,20 @@ import java.util.Random;
 public class Dice {
 
     public static int roll() {
-        Random random = new Random();
-        return random.nextInt(6) + 1;
+        return rollDice();
     }
 
     public static List<Integer> roll(int n) {
         List<Integer> list = new ArrayList<>(n);
-        Random random = new Random();
 
         for (int i = 0; i < n; i++) {
-            list.add(random.nextInt(6) + 1);
+            list.add(rollDice());
         }
         return Collections.unmodifiableList(list);
+    }
+
+    private static int rollDice() {
+        Random random = new Random();
+        return random.nextInt(6) + 1;
     }
 }

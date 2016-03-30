@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -56,11 +57,21 @@ public class PlayerStatsPanel extends JPanel implements IRefreshable {
 
     @Override
     public void refresh() {
-        GetQuery dq = new GetQuery();
-        List<Player> playerList = dq.getPlayerList();
+        GetQuery gq = new GetQuery();
+        List<Player> playerList = gq.getPlayerList();
         int i = 0;
         for (Player player : playerList) {
-            _labelList.get(i).setText(player.toString());
+            StringBuilder builder = new StringBuilder();
+            builder.append("<html><body>");
+            builder.append("Name: ").append(player.getName()).append("<br>");
+            builder.append("No of armies: ").append(player.getNoOfArmies()).append("<br>");
+            builder.append("Territories: ");
+            builder.append(gq.getCountryListByPlayerName(player.getName())
+                    .stream()
+                    .map((country) -> country.getAbbreviation())
+                    .collect(Collectors.toList()));
+            builder.append("</body></html>");
+            _labelList.get(i).setText(builder.toString());
             i++;
         }
     }

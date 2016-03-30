@@ -1,6 +1,7 @@
 package game.graphic;
 
 import game.core.Constants;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -17,23 +18,34 @@ public class RiskFrame extends JFrame implements IRefreshable {
     private MessagePanel _messagePanel;
     private CommandPanel _commandPanel;
 
+    private final Dimension PLAYER_STATS_PANEL = new Dimension(200, Constants.MAP_RATIO_HEIGHT * Constants.MAP_GROWTH_NEW);
+    private final Dimension MAP_PANEL = new Dimension(Constants.MAP_RATIO_WIDTH * Constants.MAP_GROWTH_NEW,
+            PLAYER_STATS_PANEL.height);
+    private final Dimension MESSAGE_PANEL = new Dimension(PLAYER_STATS_PANEL.width + MAP_PANEL.width, 150);
+    private final Dimension COMMAND_PANEL = new Dimension(PLAYER_STATS_PANEL.width + MAP_PANEL.width, 30);
+
     public RiskFrame() {
         super("RISK GAME");
         this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
-        this.setResizable(false);
-        this.setSize(1000 + 200 + 5, 580 + 100 + 50);
+        this.setResizable(true);
+        this.setSize(PLAYER_STATS_PANEL.width + MAP_PANEL.width + 15,
+                PLAYER_STATS_PANEL.height + MESSAGE_PANEL.height + COMMAND_PANEL.height + 40);
         this.setVisible(true);
 
         _playerStatsPanel = (PlayerStatsPanel) this.getContentPane()
-                .add(new PlayerStatsPanel(0, 0, 200, 580));
+                .add(new PlayerStatsPanel(0, 0, PLAYER_STATS_PANEL.width,
+                        PLAYER_STATS_PANEL.height));
         _mapPanel = (MapPanel) this.getContentPane()
-                .add(new MapPanel(201, 0, 1000, 580));
+                .add(new MapPanel(PLAYER_STATS_PANEL.width, 0,
+                        MAP_PANEL.width, MAP_PANEL.height));
         _messagePanel = (MessagePanel) this.getContentPane()
-                .add(new MessagePanel(0, 581, 1001 + 201 + 1, 100));
+                .add(new MessagePanel(0, PLAYER_STATS_PANEL.height,
+                        MESSAGE_PANEL.width, MESSAGE_PANEL.height));
         _commandPanel = (CommandPanel) this.getContentPane()
-                .add(new CommandPanel(0, 581 + 101, 1000 + 200, 20));
+                .add(new CommandPanel(0, PLAYER_STATS_PANEL.height + MESSAGE_PANEL.height,
+                        COMMAND_PANEL.width, COMMAND_PANEL.height));
 
     }
 

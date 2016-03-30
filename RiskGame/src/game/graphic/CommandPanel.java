@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -19,7 +17,8 @@ import javax.swing.JTextField;
 public class CommandPanel extends JPanel {
 
     private JTextField _textField;
-    private List<String> _inputList = new ArrayList<String>();
+
+    private final List<String> _inputList = new ArrayList<String>();
 
     public CommandPanel(int x, int y, int width, int height) {
         super();
@@ -58,6 +57,17 @@ public class CommandPanel extends JPanel {
                 _inputList.notify();
             }
         }
-
     }
+
+    public void setCommand(String command) {
+        synchronized (_inputList) {
+            _inputList.add(command);
+            _inputList.notify();
+        }
+    }
+
+    public JTextField getTextField() {
+        return _textField;
+    }
+
 }

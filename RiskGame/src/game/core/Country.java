@@ -16,33 +16,29 @@ public class Country {
     private final Continent _continent;
     private final Point _countryCoOrd;
     private final List<CountryIndex> _adjacentCountryIndexList;
-    private final String _abbreviations;
+    private final String _abbreviation;
 
     private Player _ownerOfTheCountry = null;
-    private int _armyInCountry = 0;
+    private int _noOfArmyInCountry = 0;
 
     /**
      *
      * @param countryId unique id for finding the country
-     * @param abbreviations shortcut name of the country
+     * @param abbreviation shortcut name of the country
      * @param name name of the country
      * @param continent continent of the country
      * @param xCoOrd x coordinate of the country
      * @param yCoOrd y coordinate of the country
      * @param adjacentCountries list of adjacent countries index
      */
-    public Country(CountryIndex countryId, String abbreviations, String name, Continent continent,
+    public Country(CountryIndex countryId, String abbreviation, String name, Continent continent,
             int xCoOrd, int yCoOrd, List<CountryIndex> adjacentCountries) {
         _countryId = countryId;
-        _abbreviations = abbreviations;
+        _abbreviation = abbreviation;
         _name = name;
         _continent = continent;
-        _countryCoOrd = new Point(xCoOrd, yCoOrd);
+        _countryCoOrd = new Point(Utils.getRatioCoOrdinate(xCoOrd, yCoOrd));
         _adjacentCountryIndexList = Collections.unmodifiableList(new ArrayList<>(adjacentCountries));
-    }
-
-    Country(CountryIndex countryIndex, String ont, String ontario, Continent get, int i, int i0, ArrayList<CountryIndex> arrayList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -57,8 +53,8 @@ public class Country {
      *
      * @return abbreviations of the Country
      */
-    public String getAbbreviations() {
-        return _abbreviations;
+    public String getAbbreviation() {
+        return _abbreviation;
     }
 
     /**
@@ -123,15 +119,37 @@ public class Country {
      *
      * @return no. of army in the country
      */
-    public int getArmyInCountry() {
-        return _armyInCountry;
+    public int getNoOfArmyInCountry() {
+        return _noOfArmyInCountry;
     }
 
     /**
      *
-     * @param noOfArmy set the no. of army in this country
+     * @param noOfArmy
+     * @return the no of army added
      */
-    public void setArmyInCountry(int noOfArmy) {
-        _armyInCountry = noOfArmy;
+    public int addNoOfArmyInCountry(int noOfArmy) {
+        _noOfArmyInCountry += noOfArmy;
+        return noOfArmy;
     }
+
+    /**
+     *
+     * @param noOfArmy
+     * @return the no of army removed
+     */
+    public int removeNoOfArmyInCountry(int noOfArmy) {
+        _noOfArmyInCountry -= noOfArmy;
+        return noOfArmy;
+    }
+
+    public boolean isCountryInAdjacent(String countryName) {
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return _name + "(" + _noOfArmyInCountry + ")";
+    }
+
 }

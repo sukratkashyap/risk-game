@@ -18,7 +18,7 @@ public class Player {
     private final Color _nodeColor;
     private int _numberOfArmies;
     private int _order;
-    private List<Card> _cardInHand = new ArrayList<>();
+    private List<Card> _cardInHand;
 
     /**
      *
@@ -32,22 +32,27 @@ public class Player {
         _playerType = playerType;
         _nodeColor = color;
         _numberOfArmies = noOfArmies;
-    }
-    
-    public Player(String name, PlayerType playerType) {
-        _name = name;
-        _playerType = playerType;
-        _nodeColor = Color.RED;
+        _cardInHand = new ArrayList<>();
     }
 
     /**
      *
-     * @set number of the armies
+     * @param noOfArmies no of armies to be added
+     * @return the no of army added
      */
-    public int setNoOfArmies(int numberOfArmies) {
-        _numberOfArmies = numberOfArmies;
-        return _numberOfArmies;
-        
+    public int addNoOfArmies(int noOfArmies) {
+        _numberOfArmies += noOfArmies;
+        return noOfArmies;
+    }
+
+    /**
+     *
+     * @param noOfArmies no of armies to be subtracted
+     * @return the number of armies removed
+     */
+    public int removeNoOfArmies(int noOfArmies) {
+        _numberOfArmies -= noOfArmies;
+        return noOfArmies;
     }
 
     /**
@@ -81,23 +86,51 @@ public class Player {
     public PlayerType getPlayerType() {
         return _playerType;
     }
-    
+
+    /**
+     *
+     * @return gets the list of card that the player currently has
+     */
     public List<Card> getCardList() {
-        return Collections.unmodifiableList(_cardInHand);
+        return _cardInHand.stream().collect(Collectors.toList());
     }
-    
+
+    /**
+     *
+     * @param card add the card to the player
+     */
     public void addCard(Card card) {
+        card.setWithPlayer(true);
         _cardInHand.add(card);
     }
-    
-    public void removeCard(Card card) {
-        _cardInHand.removeIf((c) -> c.getCountryName().equals(card.getCountryName()));
+
+    /**
+     *
+     * @param card removes the card from the player
+     * @return
+     */
+    public boolean removeCard(Card card) {
+        boolean isRemoved = _cardInHand
+                .removeIf((c) -> c.getCountryName().equals(card.getCountryName()));
+        if (isRemoved == true) {
+            card.setWithPlayer(false);
+        }
+        return isRemoved;
     }
-    
+
+    /**
+     * Sets the order in which the player will have their turns
+     *
+     * @param order
+     */
     public void setOrder(int order) {
         _order = order;
     }
-    
+
+    /**
+     *
+     * @return get the order
+     */
     public int getOrder() {
         return _order;
     }
@@ -108,7 +141,6 @@ public class Player {
         builder.append("<html><body>");
         builder.append("Name: ").append(_name).append("<br>");
         builder.append("No of armies: ").append(_numberOfArmies).append("<br>");
-        builder.append("Cards: ").append(_cardInHand.stream().map((card) -> card.getCountryName()).collect(Collectors.toList()));
         builder.append("</body></html>");
         return builder.toString();
     }

@@ -12,6 +12,7 @@ public class Continent {
     private final String _name;
     private final int _continentValues;
     private final Color _color;
+    private final int _noOfTerritories;
 
     /**
      *
@@ -19,12 +20,14 @@ public class Continent {
      * @param name name of the continent
      * @param continentValue value of the continent
      * @param color color of the continent
+     * @param noOfTerritories no of territories in the continent
      */
-    public Continent(ContinentIndex continentId, String name, int continentValue, Color color) {
+    public Continent(ContinentIndex continentId, String name, int continentValue, Color color, int noOfTerritories) {
         _continentIndex = continentId;
         _name = name;
         _continentValues = continentValue;
         _color = color;
+        _noOfTerritories = noOfTerritories;
     }
 
     /**
@@ -59,5 +62,13 @@ public class Continent {
      */
     public Color getColor() {
         return _color;
+    }
+
+    /**
+     *
+     * @return no of territories in the continent
+     */
+    public int getNoOfTerritories() {
+        return _noOfTerritories;
     }
 }

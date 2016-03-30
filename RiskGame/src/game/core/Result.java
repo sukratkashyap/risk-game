@@ -22,15 +22,21 @@ public class Result<T> {
         this._result = null;
     }
 
-    public boolean IsSuccessful() {
+    public Result(boolean isSuccess) {
+        this._isSuccess = isSuccess;
+        this._message = "";
+        this._result = null;
+    }
+
+    public boolean isSuccessful() {
         return _isSuccess;
     }
 
-    public String ErrorMsg() {
+    public String errorMsg() {
         return _message;
     }
 
-    public T Result() {
+    public T result() {
         return _result;
     }
 }

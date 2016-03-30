@@ -18,12 +18,12 @@ public class DataFactory {
     //Singleton Pattern used
     private static final DataFactory _instance = new DataFactory();
 
-    private Map<ContinentIndex, Continent> _continentMap = new ConcurrentHashMap<>();
-    private Map<CountryIndex, Country> _countryMap = new ConcurrentHashMap<>();
-    private Map<String, Country> _countryNameMap = new ConcurrentHashMap<>();
+    private Map<ContinentIndex, Continent> _continentMap = new ConcurrentHashMap<>(Constants.NUM_CONTINENTS);
+    private Map<CountryIndex, Country> _countryMap = new ConcurrentHashMap<>(Constants.NUM_COUNTRIES);
+    private Map<String, Country> _countryNameMap = new ConcurrentHashMap<>(Constants.NUM_COUNTRIES);
+    private Map<String, Country> _countryAbbreviationMap = new ConcurrentHashMap<>(Constants.NUM_COUNTRIES);
     private Map<String, Player> _playerMap = new ConcurrentHashMap<>(Constants.NUM_PLAYERS);
-    private Map<String, Card> _cardMap = new ConcurrentHashMap<>();
-    private Map<String, Country> _countryAbbreviationsMap = new ConcurrentHashMap<>();
+    private Map<String, Card> _cardMap = new ConcurrentHashMap<>(Constants.NUM_CARDS);
 
     private DataFactory() {
         //creating continentMap first
@@ -38,12 +38,14 @@ public class DataFactory {
                 .forEach((country) -> {
                     _countryMap.put(country.getCountryId(), country);
                     _countryNameMap.put(country.getName(), country);
-                    _countryAbbreviationsMap.put(country.getAbbreviations(), country);
+                    _countryAbbreviationMap.put(country.getAbbreviation(), country);
                     _cardMap.put(country.getName(), new Card(country.getName(), CardType.Territory));
                 });
         _cardMap.put("wild1", new Card("wild1", CardType.Wild));
         _cardMap.put("wild2", new Card("wild2", CardType.Wild));
         _countryMap = Collections.unmodifiableMap(_countryMap);
+        _countryNameMap = Collections.unmodifiableMap(_countryNameMap);
+        _countryAbbreviationMap = Collections.unmodifiableMap(_countryAbbreviationMap);
         _cardMap = Collections.unmodifiableMap(_cardMap);
     }
 
@@ -71,14 +73,42 @@ public class DataFactory {
         return _countryMap;
     }
 
+    /**
+     * Gets the country map which contains the Country object as value and
+     * Country name as key
+     *
+     * @return (Map)unmodifiable of country
+     */
     public Map<String, Country> getCountryNameMap() {
         return _countryNameMap;
     }
 
+    /**
+     * Gets the country map which contains the Country object as value and
+     * Country abbreviation as key
+     *
+     * @return (Map)unmodifiable of country
+     */
+    public Map<String, Country> getCountryAbbreviationMap() {
+        return _countryAbbreviationMap;
+    }
+
+    /**
+     * Gets the player map which contains the Player object as value and Player
+     * name as key
+     *
+     * @return (Map)unmodifiable of player
+     */
     public Map<String, Player> getPlayerMap() {
         return _playerMap;
     }
 
+    /**
+     * Gets the card map which contains the Card object as value and card name
+     * as key
+     *
+     * @return (Map)unmodifiable of card
+     */
     public Map<String, Card> getCardMap() {
         return _cardMap;
     }
@@ -86,12 +116,12 @@ public class DataFactory {
     private List<Continent> createContinentList() {
         List<Continent> continentList = new ArrayList<>(Constants.NUM_CONTINENTS);
 
-        continentList.add(new Continent(ContinentIndex.NAmerica, "North America", 5, Color.RED));
-        continentList.add(new Continent(ContinentIndex.Europe, "Europe", 5, Color.BLUE));
-        continentList.add(new Continent(ContinentIndex.Asia, "Asia", 7, Color.PINK));
-        continentList.add(new Continent(ContinentIndex.Australia, "Australia", 2, Color.GREEN));
-        continentList.add(new Continent(ContinentIndex.SAmerica, "South America", 2, Color.YELLOW));
-        continentList.add(new Continent(ContinentIndex.Africa, "Africa", 3, Color.DARK_GRAY));
+        continentList.add(new Continent(ContinentIndex.NAmerica, "North America", 5, Color.RED, 9));
+        continentList.add(new Continent(ContinentIndex.Europe, "Europe", 5, Color.BLUE, 7));
+        continentList.add(new Continent(ContinentIndex.Asia, "Asia", 7, Color.PINK, 12));
+        continentList.add(new Continent(ContinentIndex.Australia, "Australia", 2, Color.GREEN, 4));
+        continentList.add(new Continent(ContinentIndex.SAmerica, "South America", 2, Color.YELLOW, 4));
+        continentList.add(new Continent(ContinentIndex.Africa, "Africa", 3, Color.DARK_GRAY, 6));
 
         return continentList;
     }
@@ -263,7 +293,7 @@ public class DataFactory {
             }
         }));
 
-        countryList.add(new Country(CountryIndex.MiddleEast, "EDE", "Middle East", _continentMap.get(ContinentIndex.Asia), 572, 338, new ArrayList<CountryIndex>() {
+        countryList.add(new Country(CountryIndex.MiddleEast, "MIE", "Middle East", _continentMap.get(ContinentIndex.Asia), 572, 338, new ArrayList<CountryIndex>() {
             {
                 add(CountryIndex.Ukraine);
                 add(CountryIndex.Afghanistan);

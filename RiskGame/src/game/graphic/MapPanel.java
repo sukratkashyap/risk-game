@@ -1,12 +1,16 @@
 package game.graphic;
 
-import game.core.Constants;
 import game.data.GetQuery;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -17,6 +21,7 @@ import javax.swing.JPanel;
 public class MapPanel extends JPanel implements IRefreshable {
 
     private LineComponent _lineComponent;
+    private ImageComponent _imageComponent;
     private List<CountryNodeComponent> _countryNodeComponentList = new ArrayList<>();
 
     public MapPanel(int x, int y, int width, int height) {
@@ -26,6 +31,9 @@ public class MapPanel extends JPanel implements IRefreshable {
         this.setLayout(null);
         this.setVisible(true);
 
+        _imageComponent = new ImageComponent(width, height);
+        this.add(_imageComponent, 0, 0);
+        
         _lineComponent = new LineComponent(width, height);
         this.add(_lineComponent, 1, 0);
         GetQuery query = new GetQuery();

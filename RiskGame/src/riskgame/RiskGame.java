@@ -1,6 +1,8 @@
 package riskgame;
 
+import game.core.Player;
 import game.graphic.GUI;
+import java.util.List;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
@@ -9,17 +11,38 @@ import game.graphic.GUI;
 public class RiskGame {
 
     public static void main(String[] args) {
-//        SwingUtilities.invokeLater(() -> {
-//            new RiskGame();
-//        });
         RiskGame riskGame = new RiskGame();
+        riskGame.run();
     }
 
+    protected GUI _gui;
+    private GamePlay _gamePlay;
+
     protected RiskGame() {
-        GamePlay gamePlay = new GamePlay(new GUI());
-        gamePlay.getPlayerNameFromUser();
-        gamePlay.assignTerritoryCard();
-        gamePlay.rollDice();
-        gamePlay.setInforcements();
+        _gui = new GUI();
+        _gamePlay = new GamePlay(_gui);
+    }
+
+    public void run() {
+        _gamePlay.getPlayerNameFromUser();
+        _gamePlay.assignTerritoryCard();
+        _gamePlay.rollDice();
+        _gamePlay.setInforcements();
+        List<Player> orderedPlayerList = _gamePlay.rollDice();
+        boolean isGameOver = false;
+        while (!isGameOver) {
+            for (Player player : orderedPlayerList) {
+                _gamePlay.giveReInforcements(player);
+                _gamePlay.setInforcements(player);
+                _gamePlay.attackOrNot(player);
+                _gamePlay.fortifyOrNot(player);
+                isGameOver = _gamePlay.isGameOver();
+                if (isGameOver) {
+                    break;
+                }
+            }
+        }
+        _gamePlay.printWinner();
+        _gamePlay.close();
     }
 }
