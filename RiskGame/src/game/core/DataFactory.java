@@ -39,7 +39,7 @@ public class DataFactory {
                     _countryMap.put(country.getCountryId(), country);
                     _countryNameMap.put(country.getName(), country);
                     _countryAbbreviationMap.put(country.getAbbreviation(), country);
-                    _cardMap.put(country.getName(), new Card(country.getName(), CardType.Territory));
+                    _cardMap.put(country.getName(), new Card(country.getName(), CardType.Artillery));
                 });
         _cardMap.put("wild1", new Card("wild1", CardType.Wild));
         _cardMap.put("wild2", new Card("wild2", CardType.Wild));

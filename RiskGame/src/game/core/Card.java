@@ -9,6 +9,7 @@ public class Card {
     private String _countryName;
     private CardType _cardType;
     private boolean _withPlayer;
+    private CountryIndex _countryIndex;
 
     /**
      *
@@ -55,7 +56,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return _countryName + " (" + (_cardType == CardType.Territory ? "T" : "W") + ")";
+        return _countryName + " (" + (_cardType != CardType.Wild ? "T" : "W") + ")";
     }
 
 }

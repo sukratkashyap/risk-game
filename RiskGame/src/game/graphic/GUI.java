@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
  */
 public class GUI implements IRefreshable {
 
-    private RiskFrame _riskFrame;
+    private final RiskFrame _riskFrame;
 
     public GUI() {
         _riskFrame = new RiskFrame();
@@ -45,6 +45,10 @@ public class GUI implements IRefreshable {
         _riskFrame.getMessagePanel().addResult(text);
     }
 
+    /**
+     * repaint and revalidate the frame.
+     */
+   
     @Override
     public void refresh() {
         _riskFrame.refresh();

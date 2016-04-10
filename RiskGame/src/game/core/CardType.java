@@ -6,13 +6,8 @@ package game.core;
  */
 public enum CardType {
 
-    /**
-     * Territory card type
-     */
-    Territory,
-    
-    /**
-     * Wild card type
-     */
+    Infantry,
+    Cavalry,
+    Artillery,    
     Wild
 }

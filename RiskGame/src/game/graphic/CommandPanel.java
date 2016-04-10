@@ -2,6 +2,7 @@ package game.graphic;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class CommandPanel extends JPanel {
 
         _textField = new JTextField();
         _textField.addActionListener(new TextBoxActionListener());
+        _textField.setPreferredSize(new Dimension(width/2,24));
         this.add(_textField, BorderLayout.CENTER);
     }
 

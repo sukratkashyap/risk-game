@@ -65,6 +65,9 @@ public class RiskFrame extends JFrame implements IRefreshable {
         return _messagePanel;
     }
 
+    /**
+     * Repaint and revalidate.
+     */
     @Override
     public void refresh() {
         this.repaint();

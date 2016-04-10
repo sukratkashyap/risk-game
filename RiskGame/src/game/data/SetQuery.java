@@ -47,6 +47,20 @@ public class SetQuery {
         }
         return result;
     }
+    
+    /**
+     *
+     * @param playerName
+     * @param noOfCardsexchanged
+     * @return
+     */
+    public void exchangeInfantryCard(String playerName, int noOfCardsexchanged) {
+        
+        
+
+        
+    }
+    
 
     /**
      *
@@ -61,7 +75,7 @@ public class SetQuery {
             Card card = _dataFactory.getCardMap().entrySet()
                     .stream()
                     .map((cardEntry) -> cardEntry.getValue())
-                    .filter((cardEntry) -> cardEntry.getCardType() == CardType.Territory
+                    .filter((cardEntry) -> cardEntry.getCardType() != CardType.Wild
                             && cardEntry.isWithPlayer() == false)
                     .findAny()
                     .get();
