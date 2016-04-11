@@ -16,13 +16,7 @@ import java.util.Map;
  * @author Sukrat Kashyap (14200092)
  * @Description
  */
-public class SetQuery {
-
-    private final DataFactory _dataFactory;
-
-    public SetQuery() {
-        _dataFactory = DataFactory.getInstance();
-    }
+public class SetQuery extends BaseQuery {
 
     /**
      *
@@ -32,64 +26,71 @@ public class SetQuery {
      */
     public Result<Player> addPlayer(String name, PlayerType playerType) {
         Result<Player> result;
-        Map<String, Player> playerMap = _dataFactory.getPlayerMap();
-
         int noOfArmies = playerType == PlayerType.MainPlayer
                 ? Constants.INIT_UNITS_PLAYER : Constants.INIT_UNITS_NEUTRAL;
 
         Player player = new Player(name, playerType,
-                Constants.COLOR_PLAYER[playerMap.size()], noOfArmies);
-        if (playerMap.containsKey(name)) {
+                Constants.COLOR_PLAYER[playerMap().size()], noOfArmies);
+        if (playerMap().containsKey(name)) {
             result = new Result<>(false, "Player already exists!", null);
         } else {
-            playerMap.put(player.getName(), player);
+            playerMap().put(player.getName(), player);
             result = new Result<>(true, "", player);
         }
         return result;
     }
-    
+
     /**
      *
      * @param playerName
-     * @param noOfCardsexchanged
+     * @param input
      * @return
      */
-    public void exchangeInfantryCard(String playerName, int noOfCardsexchanged) {
-        
-        
+    public Result exchangeInfantryCard(String playerName, String input) {
+        Result result = null;
+        String[] cardTypes = input.toLowerCase().split("");
+        Player player = playerByName(playerName);
+        if (cardTypes.length == 3) {
 
-        
+        } else {
+            result = new Result(false, "3 Cards needed!");
+        }
+        return result;
     }
-    
 
     /**
      *
      * @param playerName
+     * @param noOfCards
+     * @param wildAlso
      * @return
      */
-    public List<Card> assignRandomCardsToPlayer(String playerName, int noOfCards) {
-        Player player = _dataFactory.getPlayerMap().get(playerName);
+    public List<Card> assignRandomCardsToPlayer(String playerName, int noOfCards, boolean wildAlso) {
+        Player player = playerByName(playerName);
 
         List<Card> cardList = new ArrayList<>(noOfCards);
         for (int i = 0; i < noOfCards; i++) {
-            Card card = _dataFactory.getCardMap().entrySet()
-                    .stream()
-                    .map((cardEntry) -> cardEntry.getValue())
-                    .filter((cardEntry) -> cardEntry.getCardType() != CardType.Wild
-                            && cardEntry.isWithPlayer() == false)
+            Card randomCard = cardMap().entrySet()
+                    .parallelStream()
+                    .map((entry) -> entry.getValue())
+                    .filter((card) -> {
+                        boolean wild = false;
+                        if (!wildAlso) {
+                            wild = card.getCardType() != CardType.Wild;
+                        }
+                        return card.isWithPlayer() == false && wild;
+                    })
                     .findAny()
                     .get();
-            player.addCard(card);
-            cardList.add(card);
+            player.addCard(randomCard);
+            cardList.add(randomCard);
         }
-
         return cardList;
     }
 
     public void assignCountryByName(String playerName, String countryName) {
-        Country country = _dataFactory.getCountryNameMap().get(countryName);
-        Player player = _dataFactory.getPlayerMap().get(playerName);
-
+        Country country = countryByName(countryName);
+        Player player = playerByName(playerName);
         country.setOwnerOfTheCountry(player);
         country.addNoOfArmyInCountry(player.removeNoOfArmies(1));
     }
@@ -102,8 +103,8 @@ public class SetQuery {
      * @return
      */
     public Result addUnitToCountry(String playerName, String abbreviation, int units) {
-        Country country = _dataFactory.getCountryAbbreviationMap().get(abbreviation);
-        Player player = _dataFactory.getPlayerMap().get(playerName);
+        Country country = countryByAbb(abbreviation);
+        Player player = playerByName(playerName);
         country.addNoOfArmyInCountry(player.removeNoOfArmies(units));
         return new Result(true, "");
     }
@@ -116,8 +117,8 @@ public class SetQuery {
      * @return
      */
     public Result removeUnitToCountry(String playerName, String countryName, int units) {
-        Country country = _dataFactory.getCountryNameMap().get(countryName);
-        Player player = _dataFactory.getPlayerMap().get(playerName);
+        Country country = countryByName(countryName);
+        Player player = playerByName(playerName);
         player.addNoOfArmies(country.removeNoOfArmyInCountry(units));
         return new Result(true, "");
     }
@@ -128,8 +129,8 @@ public class SetQuery {
      * @return
      */
     public Result removePlayer(String playerName) {
-        if (_dataFactory.getPlayerMap().containsKey(playerName)) {
-            _dataFactory.getPlayerMap().remove(playerName);
+        if (playerMap().containsKey(playerName)) {
+            playerMap().remove(playerName);
         }
         return new Result(true, "");
     }

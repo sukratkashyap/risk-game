@@ -33,8 +33,8 @@ public class CountryNodeComponent extends JComponent implements IRefreshable {
     public CountryNodeComponent(Country country) {
         super();
         _country = country;
-        this.setLayout(null);
-        this.setBounds(1, 1, 1, 1);
+        super.setLayout(null);
+        super.setBounds(1, 1, 1, 1);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class CountryNodeComponent extends JComponent implements IRefreshable {
         int fontHeight = g2.getFontMetrics(_label.getFont()).getHeight();
         _label.setBounds(0, 0, COUNTRY_DIAMETER + fontWidth + LABEL_MARGIN_X, fontHeight + LABEL_MARGIN_Y);
 
-        this.setBounds(_country.getXCoOrdinate() - fontWidth / 2 - COUNTRY_RADIUS - LABEL_MARGIN_X,
+        super.setBounds(_country.getXCoOrdinate() - fontWidth / 2 - COUNTRY_RADIUS - LABEL_MARGIN_X,
                 _country.getYCoOrdinate() - fontHeight - COUNTRY_RADIUS - LABEL_MARGIN_Y,
                 COUNTRY_DIAMETER + fontWidth + LABEL_MARGIN_X, COUNTRY_DIAMETER + fontHeight + LABEL_MARGIN_Y);
 
@@ -73,14 +73,14 @@ public class CountryNodeComponent extends JComponent implements IRefreshable {
                     PLAYER_DIAMETER, PLAYER_DIAMETER);
             g2.fill(playerCircle);
         }
-        this.add(_label);
-        this.SetTheToolTip();
+        super.add(_label);
+        SetTheToolTip();
     }
 
     /**
      * Sets the tooltip for the country node.
      */
-    public void SetTheToolTip() {
+    private void SetTheToolTip() {
         StringBuilder builder = new StringBuilder();
         builder.append("<html><body>");
         builder.append("Name: ").append(_country.getName());
@@ -93,12 +93,12 @@ public class CountryNodeComponent extends JComponent implements IRefreshable {
             builder.append("Enter shortcut ").append(_country.getAbbreviation()).append(" for this country.");
         }
         builder.append("</body></html>");
-        this.setToolTipText(builder.toString());
+        super.setToolTipText(builder.toString());
     }
 
     @Override
     public void refresh() {
-        this.repaint();
-        this.revalidate();
+        super.repaint();
+        super.revalidate();
     }
 }

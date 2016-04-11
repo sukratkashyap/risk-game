@@ -14,15 +14,15 @@ import javax.swing.text.DefaultCaret;
  */
 public class MessagePanel extends JPanel {
 
-    private JTextArea _textArea;
-    private JScrollPane _scrollPane;
+    private final JTextArea _textArea;
+    private final JScrollPane _scrollPane;
 
     public MessagePanel(int x, int y, int width, int height) {
         super();
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBounds(x, y, width, height);
-        this.setLayout(new BorderLayout());
-        this.setVisible(true);
+        super.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        super.setBounds(x, y, width, height);
+        super.setLayout(new BorderLayout());
+        super.setVisible(true);
 
         _textArea = new JTextArea();
         _textArea.setLineWrap(true);
@@ -31,7 +31,7 @@ public class MessagePanel extends JPanel {
         ((DefaultCaret) _textArea.getCaret()).setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         _scrollPane = new JScrollPane(_textArea);
         _scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        this.add(_scrollPane, BorderLayout.CENTER);
+        super.add(_scrollPane, BorderLayout.CENTER);
     }
 
     public void addQuestion(String text) {

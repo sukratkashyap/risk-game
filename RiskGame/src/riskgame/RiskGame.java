@@ -8,11 +8,10 @@ import java.util.List;
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
  * @Description
  */
-public class RiskGame {
+public class RiskGame implements Runnable {
 
     public static void main(String[] args) {
-        RiskGame riskGame = new RiskGame();
-        riskGame.run();
+        new Thread(new RiskGame()).start();
     }
 
     protected GUI _gui;
@@ -23,6 +22,7 @@ public class RiskGame {
         _gamePlay = new GamePlay(_gui);
     }
 
+    @Override
     public void run() {
         _gamePlay.getPlayerNameFromUser();
         _gamePlay.assignTerritoryCard();

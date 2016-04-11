@@ -6,25 +6,35 @@ package game.core;
  */
 public class Card {
 
-    private String _countryName;
-    private CardType _cardType;
+    private final CardType _cardType;
     private boolean _withPlayer;
-    private CountryIndex _countryIndex;
+    private final CountryId _countryId;
+    private final String _countryName;
 
     /**
      *
-     * @param countryName name of the country
+     * @param countryId id of the country
+     * @param countryName
      * @param cardType type of the card
      */
-    public Card(String countryName, CardType cardType) {
-        this._countryName = countryName;
+    public Card(CountryId countryId, String countryName, CardType cardType) {
+        this._countryId = countryId;
         this._cardType = cardType;
+        this._countryName = countryName;
         _withPlayer = false;
     }
 
     /**
      *
-     * @return get the country name
+     * @return get the country id
+     */
+    public CountryId getCountryId() {
+        return _countryId;
+    }
+
+    /**
+     *
+     * @return
      */
     public String getCountryName() {
         return _countryName;
@@ -54,9 +64,28 @@ public class Card {
         _withPlayer = isWithPlayer;
     }
 
-    @Override
-    public String toString() {
-        return _countryName + " (" + (_cardType != CardType.Wild ? "T" : "W") + ")";
+    private String getStringCardType() {
+        String output = "";
+        if (_cardType != null) {
+            switch (_cardType) {
+                case Artillery:
+                    output = "A";
+                    break;
+                case Cavalry:
+                    output = "C";
+                    break;
+                case Infantry:
+                    output = "I";
+                    break;
+                default:
+                    output = "W";
+            }
+        }
+        return output;
     }
 
+    @Override
+    public String toString() {
+        return getStringCardType();
+    }
 }

@@ -8,6 +8,6 @@ public enum CardType {
 
     Infantry,
     Cavalry,
-    Artillery,    
+    Artillery,
     Wild
 }

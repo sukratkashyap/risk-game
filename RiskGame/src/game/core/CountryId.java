@@ -5,7 +5,7 @@ package game.core;
  * @Description Enumeration for Country. Also used to find the corresponding
  * country object. Acts as key in dictionary.
  */
-public enum CountryIndex {
+public enum CountryId {
 
     Ontario,
     Quebec,

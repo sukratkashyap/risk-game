@@ -1,6 +1,5 @@
 package game.graphic;
 
-import game.core.Constants;
 import game.core.Player;
 import game.data.GetQuery;
 import java.awt.Color;
@@ -19,7 +18,7 @@ import javax.swing.JPanel;
  */
 public class PlayerStatsPanel extends JPanel implements IRefreshable {
 
-    private List<JLabel> _labelList = new ArrayList<JLabel>() {
+    private final List<JLabel> _labelList = new ArrayList<JLabel>() {
         {
             add(new JLabel());
             add(new JLabel());
@@ -29,16 +28,16 @@ public class PlayerStatsPanel extends JPanel implements IRefreshable {
             add(new JLabel());
         }
     };
-    private GridLayout _gridLayout;
+    private final GridLayout _gridLayout;
 
     public PlayerStatsPanel(int x, int y, int width, int height) {
         super();
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBounds(x, y, width, height);
-        this.setVisible(true);
+        super.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        super.setBounds(x, y, width, height);
+        super.setVisible(true);
 
         _gridLayout = new GridLayout(_labelList.size(), 1);
-        this.setLayout(_gridLayout);
+        super.setLayout(_gridLayout);
         _labelList.stream()
                 .forEach((label) -> {
                     this.add(label);

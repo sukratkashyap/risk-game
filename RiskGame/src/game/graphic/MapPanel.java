@@ -2,14 +2,8 @@ package game.graphic;
 
 import game.data.GetQuery;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
@@ -20,34 +14,34 @@ import javax.swing.JPanel;
  */
 public class MapPanel extends JPanel implements IRefreshable {
 
-    private LineComponent _lineComponent;
-    private ImageComponent _imageComponent;
+    private final LineComponent _lineComponent;
+    private final ImageComponent _imageComponent;
     private List<CountryNodeComponent> _countryNodeComponentList = new ArrayList<>();
 
     public MapPanel(int x, int y, int width, int height) {
         super();
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBounds(x, y, width, height);
-        this.setLayout(null);
-        this.setVisible(true);
+        super.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        super.setBounds(x, y, width, height);
+        super.setLayout(null);
+        super.setVisible(true);
 
         _imageComponent = new ImageComponent(width, height);
-        this.add(_imageComponent, 0, 0);
+        super.add(_imageComponent, 0, 0);
         
         _lineComponent = new LineComponent(width, height);
-        this.add(_lineComponent, 1, 0);
+        super.add(_lineComponent, 1, 0);
         GetQuery query = new GetQuery();
         query.getCountryList().stream().forEach((country) -> {
             CountryNodeComponent comp = new CountryNodeComponent(country);
-            this.add(comp, 2, 0);
+            super.add(comp, 2, 0);
             _countryNodeComponentList.add(comp);
         });
     }
 
     @Override
     public void refresh() {
-        this.repaint();
-        this.revalidate();
+        super.repaint();
+        super.revalidate();
         _countryNodeComponentList.stream()
                 .forEach((countryNodeComponent) -> {
                     countryNodeComponent.refresh();

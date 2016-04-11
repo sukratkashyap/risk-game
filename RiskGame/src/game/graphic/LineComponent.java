@@ -16,14 +16,14 @@ import javax.swing.JComponent;
  */
 public class LineComponent extends JComponent implements IRefreshable {
 
-    private int _width;
-    private int _height;
+    private final int _width;
+    private final int _height;
 
     public LineComponent(int width, int height) {
         super();
         _width = width;
         _height = height;
-        this.setBounds(0, 0, _width, _height);
+        super.setBounds(0, 0, _width, _height);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class LineComponent extends JComponent implements IRefreshable {
         GetQuery query = new GetQuery();
         query.getCountryList().stream()
                 .forEach((country) -> {
-                    query.getCountryList(country.getAdjacentCountryIndexList())
+                    query.getCountryListByIds(country.getAdjacentCountryIdList())
                             .stream()
                             .forEach((adjacentCountry) -> {
                                 //drawing the line
@@ -50,7 +50,7 @@ public class LineComponent extends JComponent implements IRefreshable {
 
     @Override
     public void refresh() {
-        this.repaint();
-        this.revalidate();
+        super.repaint();
+        super.revalidate();
     }
 }

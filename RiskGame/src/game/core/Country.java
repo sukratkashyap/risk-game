@@ -11,11 +11,11 @@ import java.util.List;
  */
 public class Country {
 
-    private final CountryIndex _countryId;
+    private final CountryId _countryId;
     private final String _name;
     private final Continent _continent;
     private final Point _countryCoOrd;
-    private final List<CountryIndex> _adjacentCountryIndexList;
+    private final List<CountryId> _adjacentCountryIdList;
     private final String _abbreviation;
 
     private Player _ownerOfTheCountry = null;
@@ -31,21 +31,21 @@ public class Country {
      * @param yCoOrd y coordinate of the country
      * @param adjacentCountries list of adjacent countries index
      */
-    public Country(CountryIndex countryId, String abbreviation, String name, Continent continent,
-            int xCoOrd, int yCoOrd, List<CountryIndex> adjacentCountries) {
+    public Country(CountryId countryId, String abbreviation, String name, Continent continent,
+            int xCoOrd, int yCoOrd, List<CountryId> adjacentCountries) {
         _countryId = countryId;
         _abbreviation = abbreviation;
         _name = name;
         _continent = continent;
         _countryCoOrd = new Point(Utils.getRatioCoOrdinate(xCoOrd, yCoOrd));
-        _adjacentCountryIndexList = Collections.unmodifiableList(new ArrayList<>(adjacentCountries));
+        _adjacentCountryIdList = Collections.unmodifiableList(new ArrayList<>(adjacentCountries));
     }
 
     /**
      *
      * @return Id of the country
      */
-    public CountryIndex getCountryId() {
+    public CountryId getCountryId() {
         return _countryId;
     }
 
@@ -95,8 +95,8 @@ public class Country {
      *
      * @return (List)unmodifiable list of adjacent countries index
      */
-    public List<CountryIndex> getAdjacentCountryIndexList() {
-        return _adjacentCountryIndexList;
+    public List<CountryId> getAdjacentCountryIdList() {
+        return _adjacentCountryIdList;
     }
 
     /**

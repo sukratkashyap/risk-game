@@ -5,7 +5,7 @@ package game.core;
  * @Description Enumeration for Continent. Also used to find the corresponding
  * continent object. Acts as key in dictionary.
  */
-public enum ContinentIndex {
+public enum ContinentId {
 
     NAmerica,
     Europe,

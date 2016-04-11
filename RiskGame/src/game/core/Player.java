@@ -2,7 +2,6 @@ package game.core;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,13 +11,13 @@ import java.util.stream.Collectors;
  * player
  */
 public class Player {
-    
+
     private final String _name;
     private final PlayerType _playerType;
     private final Color _nodeColor;
     private int _numberOfArmies;
     private int _order;
-    private List<Card> _cardInHand;
+    private final List<Card> _cardInHand;
 
     /**
      *
@@ -111,7 +110,7 @@ public class Player {
      */
     public boolean removeCard(Card card) {
         boolean isRemoved = _cardInHand
-                .removeIf((c) -> c.getCountryName().equals(card.getCountryName()));
+                .removeIf((c) -> c.getCountryId().equals(card.getCountryId()));
         if (isRemoved == true) {
             card.setWithPlayer(false);
         }
@@ -134,7 +133,7 @@ public class Player {
     public int getOrder() {
         return _order;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

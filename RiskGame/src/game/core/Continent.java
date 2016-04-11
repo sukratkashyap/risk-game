@@ -8,9 +8,9 @@ import java.awt.Color;
  */
 public class Continent {
 
-    private final ContinentIndex _continentIndex;
+    private final ContinentId _continentId;
     private final String _name;
-    private final int _continentValues;
+    private final int _continentValue;
     private final Color _color;
     private final int _noOfTerritories;
 
@@ -22,10 +22,10 @@ public class Continent {
      * @param color color of the continent
      * @param noOfTerritories no of territories in the continent
      */
-    public Continent(ContinentIndex continentId, String name, int continentValue, Color color, int noOfTerritories) {
-        _continentIndex = continentId;
+    public Continent(ContinentId continentId, String name, int continentValue, Color color, int noOfTerritories) {
+        _continentId = continentId;
         _name = name;
-        _continentValues = continentValue;
+        _continentValue = continentValue;
         _color = color;
         _noOfTerritories = noOfTerritories;
     }
@@ -34,8 +34,8 @@ public class Continent {
      *
      * @return id of the continent
      */
-    public ContinentIndex getContinentId() {
-        return _continentIndex;
+    public ContinentId getContinentId() {
+        return _continentId;
     }
 
     /**
@@ -53,7 +53,7 @@ public class Continent {
      * @return the value of the continent
      */
     public int getContinentValue() {
-        return _continentValues;
+        return _continentValue;
     }
 
     /**

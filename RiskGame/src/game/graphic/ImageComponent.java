@@ -22,7 +22,7 @@ public class ImageComponent extends JComponent implements IRefreshable {
         super();
         _width = width;
         _height = height;
-        this.setBounds(0, 0, _width, _height);
+        super.setBounds(0, 0, _width, _height);
     }
 
     @Override
@@ -41,8 +41,8 @@ public class ImageComponent extends JComponent implements IRefreshable {
 
     @Override
     public void refresh() {
-        this.repaint();
-        this.revalidate();
+        super.repaint();
+        super.revalidate();
     }
 
 }

@@ -18,24 +18,23 @@ import javax.swing.JTextField;
 public class CommandPanel extends JPanel {
 
     private JTextField _textField;
-
-    private final List<String> _inputList = new ArrayList<String>();
+    private final List<String> _inputList = new ArrayList<>();
 
     public CommandPanel(int x, int y, int width, int height) {
         super();
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBounds(x, y, width, height);
-        this.setLayout(new BorderLayout());
-        this.setVisible(true);
+        super.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        super.setBounds(x, y, width, height);
+        super.setLayout(new BorderLayout());
+        super.setVisible(true);
 
         _textField = new JTextField();
         _textField.addActionListener(new TextBoxActionListener());
-        _textField.setPreferredSize(new Dimension(width/2,24));
-        this.add(_textField, BorderLayout.CENTER);
+        _textField.setPreferredSize(new Dimension(width / 2, 24));
+        super.add(_textField, BorderLayout.CENTER);
     }
 
     public String getCommand() {
-        String command = "";
+        String command;
         synchronized (_inputList) {
             while (_inputList.isEmpty()) {
                 try {
@@ -54,22 +53,20 @@ public class CommandPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             synchronized (_inputList) {
-                _inputList.add(_textField.getText());
+                setCommand(_textField.getText());
                 _textField.setText("");
-                _inputList.notify();
             }
         }
     }
 
-    public void setCommand(String command) {
+    public void runCommand(String command) {
+        setCommand(command);
+    }
+
+    private void setCommand(String command) {
         synchronized (_inputList) {
             _inputList.add(command);
             _inputList.notify();
         }
     }
-
-    public JTextField getTextField() {
-        return _textField;
-    }
-
 }

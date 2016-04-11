@@ -4,7 +4,6 @@ import game.core.Card;
 import game.core.Constants;
 import game.core.Continent;
 import game.core.Country;
-import game.core.CountryIndex;
 import game.core.Dice;
 import game.core.Player;
 import game.core.PlayerType;
@@ -50,16 +49,16 @@ public class GamePlay {
 
     public void assignTerritoryCard() {
         _gui.addResult("Assigning territories randomly..!!");
-        gq.getPlayerList(PlayerType.MainPlayer).stream()
+        gq.getPlayerListByType(PlayerType.MainPlayer).stream()
                 .forEach((player) -> {
-                    List<Card> cardList = sq.assignRandomCardsToPlayer(player.getName(), Constants.INIT_COUNTRIES_PLAYER);
+                    List<Card> cardList = sq.assignRandomCardsToPlayer(player.getName(), Constants.INIT_COUNTRIES_PLAYER, false);
                     cardList.stream().forEach((card) -> {
                         sq.assignCountryByName(player.getName(), card.getCountryName());
                     });
                 });
-        gq.getPlayerList(PlayerType.NeutralPlayer).stream()
+        gq.getPlayerListByType(PlayerType.NeutralPlayer).stream()
                 .forEach((player) -> {
-                    List<Card> cardList = sq.assignRandomCardsToPlayer(player.getName(), Constants.INIT_COUNTRIES_NEUTRAL);
+                    List<Card> cardList = sq.assignRandomCardsToPlayer(player.getName(), Constants.INIT_COUNTRIES_NEUTRAL, false);
                     cardList.stream().forEach((card) -> {
                         sq.assignCountryByName(player.getName(), card.getCountryName());
                     });
@@ -75,7 +74,7 @@ public class GamePlay {
 
     public List<Player> rollDice() {
         _gui.addResult("Rolling dice for who goes first!");
-        List<Player> mainPlayerList = gq.getPlayerList(PlayerType.MainPlayer);
+        List<Player> mainPlayerList = gq.getPlayerListByType(PlayerType.MainPlayer);
         while (true) {
             _gui.addResult("Rolling dice for " + mainPlayerList.get(0).getName());
             int rollForPlayer1 = Dice.roll();
@@ -107,7 +106,7 @@ public class GamePlay {
     public void setInforcements() {
         _gui.addResult("Set your Inforcements..!!");
         List<Player> mainPlayerList = gq.getOrderedMainPlayerList();
-        List<Player> neutralPlayerList = gq.getPlayerList(PlayerType.NeutralPlayer);
+        List<Player> neutralPlayerList = gq.getPlayerListByType(PlayerType.NeutralPlayer);
 
         for (int i = 0; i < Constants.INIT_COUNTRIES_PLAYER; i++) {
             mainPlayerList.forEach((player) -> {
@@ -182,7 +181,7 @@ public class GamePlay {
             }
 
             input = _gui.getInputFromUser("Enter the country you want to invade!",
-                    new Validations.RequiredAndEqualTo(gq.getAdjacentCountryByAbbreviation(attackCountry.getAbbreviation())));
+                    new Validations.RequiredAndEqualTo(gq.getAdjCountryAbbByAbb(attackCountry.getAbbreviation())));
             Country defenceCountry = gq.getCountryByAbbreviation(input.toUpperCase());
             _gui.addResult(String.format("Player %1$s is invading %2$s from %3$s", player.getName(),
                     defenceCountry.getName(),
@@ -254,7 +253,7 @@ public class GamePlay {
 
             input = _gui.getInputFromUser("Enter the country you want to move your units",
                     new Validations.RequiredAndEqualTo(
-                            gq.getAdjacentCountryByAbbreviationAndPlayer(fromCountry.getAbbreviation(), player.getName())
+                            gq.getAdjCountryByAbbAndPlayer(fromCountry.getAbbreviation(), player.getName())
                     ));
             Country toCountry = gq.getCountryByAbbreviation(input.toUpperCase());
 

@@ -12,7 +12,7 @@ import java.util.Random;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
- * @Description enum for the type of player
+ * @Description dice class for rolling
  */
 public class Dice {
 
