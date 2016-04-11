@@ -7,12 +7,14 @@ import game.core.Country;
 import game.core.Dice;
 import game.core.Player;
 import game.core.PlayerType;
+import game.core.Result;
 import game.data.GetQuery;
 import game.data.SetQuery;
 import game.data.Validations;
 import game.graphic.GUI;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 
 /**
@@ -161,7 +163,26 @@ public class GamePlay {
         _gui.refresh();
     }
 
-    public void attackOrNot(Player player) {
+    public void exchangeCards(Player player) {
+        Result<Integer> result;
+        do {
+            String input = _gui.getInputFromUser("Do you want to exchange territory cards else skip? (enter without space or commas)\n "
+                    + "eg. III for 3 Infantry cards",
+                    new Validations.RequiredField());
+            if (input.equalsIgnoreCase("skip")) {
+                break;
+            }
+            result = sq.exchangeInfantryCard(player.getName(), input.toUpperCase());
+            if (!result.isSuccessful()) {
+                _gui.addResult(result.errorMsg());
+            } else {
+                _gui.addResult("Successfully exchanged! You got " + result.result());
+            }
+        } while (result.isSuccessful());
+    }
+
+    public boolean attackOrNot(Player player) {
+        boolean didPlayerOccupyTerritory = false;
         _gui.addResult("Attack phase..!!");
         while (true) {
             String isAttack = _gui.getInputFromUser("Enter 'attack' if you want to attack a country else enter 'skip'",
@@ -215,6 +236,7 @@ public class GamePlay {
                     defenceCountry.getName(), defenceCountry.getNoOfArmyInCountry()));
 
             if (defenceCountry.getNoOfArmyInCountry() == 0) {
+                didPlayerOccupyTerritory = true;
                 _gui.addResult(String.format("Player %1$s wins the invasion", player.getName()));
                 defenceCountry.setOwnerOfTheCountry(player);
                 input = _gui.getInputFromUser("Enter the number of unit you want to place in your newly owned terrritory (>1)",
@@ -225,6 +247,19 @@ public class GamePlay {
             }
 
             _gui.refresh();
+        }
+        _gui.refresh();
+        return didPlayerOccupyTerritory;
+    }
+
+    public void drawCardFromDeck(Player player) {
+        _gui.addResult("Since you conquered one of the territory. You can draw a card from the deck!");
+        _gui.addResult("Drawing from the deck!");
+        if (gq.getCardDeck().size() > 0) {
+            List<Card> randomcard = sq.assignRandomCardsToPlayer(player.getName(), 1, true);
+            _gui.addResult("You got a " + randomcard);
+        } else {
+            _gui.addResult("Sorry! No card in the deckk!!");
         }
         _gui.refresh();
     }
@@ -287,9 +322,13 @@ public class GamePlay {
     private int attackUnitLeft(int attackUnits, int defenceUnits) {
         List<Integer> attackRoll = Dice.roll(attackUnits);
         List<Integer> defenceRoll = Dice.roll(defenceUnits);
+        attackRoll = attackRoll.stream()
+                .sorted((x, y) -> Integer.compare(y, x))
+                .collect(Collectors.toList());
 
-        Collections.sort(attackRoll, (x, y) -> Integer.compare(y, x));
-        Collections.sort(defenceRoll, (x, y) -> Integer.compare(y, x));
+        defenceRoll = defenceRoll.stream()
+                .sorted((x, y) -> Integer.compare(y, x))
+                .collect(Collectors.toList());
 
         _gui.addResult("Attacker rolls(sorted) - " + attackRoll);
         _gui.addResult("Defence rolls(sorted)" + defenceRoll);

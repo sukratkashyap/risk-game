@@ -1,15 +1,18 @@
 package RiskGameTest;
 
 import game.core.Constants;
+import game.core.Country;
 import game.core.Player;
 import game.core.PlayerType;
 import game.data.GetQuery;
 import game.graphic.GUI;
 import game.graphic.RiskFrame;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -60,7 +63,7 @@ public class AppTest {
     private void setCommand(String command) {
         riskFrame.getCommandPanel().runCommand(command);
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(AppTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,12 +84,13 @@ public class AppTest {
         List<Player> orderedMainPlayerList = gq.getOrderedMainPlayerList();
         while (orderedMainPlayerList.size() == 2) {
             for (Player player : orderedMainPlayerList) {
+                exchangeCards(player);
                 setInforcements(player);
-                //TODO need to add test cases for other operations like attack
-                //Will do in next sprint
+                attackOrNot(player);
+                fortifyOrNot(player);
             }
+            sleep(2);
             orderedMainPlayerList = gq.getOrderedMainPlayerList();
-            break;
         }
     }
 
@@ -126,8 +130,79 @@ public class AppTest {
             String cAbb = gq.getCountryAbbreviationListByPlayerName(player.getName())
                     .stream().findAny().get();
             setCommand(cAbb);
-            Integer number = random.nextInt() % player.getNoOfArmies() + 1;
+            Integer number = random.nextInt(player.getNoOfArmies()) + 1;
             setCommand(number.toString());
+        }
+    }
+
+    private void exchangeCards(Player player) {
+        if (player.getCardList().size() > 3) {
+            int noOfArmies = player.getNoOfArmies();
+            String cards = player.getCardList()
+                    .stream()
+                    .sorted((x, y) -> x.getCardType().compareTo(y.getCardType()))
+                    .limit(3)
+                    .map(c -> c.toString())
+                    .collect(Collectors.joining());
+            setCommand(cards);
+            if (noOfArmies == player.getNoOfArmies()) {
+                setCommand(TestUtils.skip);
+            }
+        } else {
+            setCommand(TestUtils.skip);
+        }
+    }
+
+    private void attackOrNot(Player player) {
+        Random rand = new Random();
+        int r = rand.nextInt(2);
+        if (r == 0) {
+            Country attackCountry = gq.getCountryListByPlayerName(player.getName())
+                    .stream().findAny().get();
+            Optional<Country> findAny = gq.getAdjCountryByAbb(attackCountry.getAbbreviation())
+                    .stream()
+                    .filter((c) -> c.getOwnerOfTheCountry() != player)
+                    .findAny();
+
+            if (findAny.isPresent() && attackCountry.getNoOfArmyInCountry() > 2) {
+                setCommand(TestUtils.attack);
+                Country defence = findAny.get();
+                setCommand(attackCountry.getAbbreviation());
+                setCommand(defence.getAbbreviation());
+                Integer attackArmy = (attackCountry.getNoOfArmyInCountry() - 1) > 2 ? rand.nextInt(3) + 1 : 1;
+                setCommand(attackArmy.toString());
+                Integer defenceArmy = defence.getNoOfArmyInCountry() > 1 ? (rand.nextInt(2) + 1) : 1;
+                setCommand(defenceArmy.toString());
+                if (defence.getOwnerOfTheCountry() == player) {
+                    setCommand(attackArmy.toString());
+                }
+            }
+        }
+        setCommand(TestUtils.skip);
+    }
+
+    private void fortifyOrNot(Player player) {
+        Random rand = new Random();
+        int r = rand.nextInt(2);
+        if (r == 0) {
+            Country from = gq.getCountryListByPlayerName(player.getName())
+                    .stream().findAny().get();
+            Optional<Country> findAny = gq.getAdjCountryByAbb(from.getAbbreviation())
+                    .stream()
+                    .filter((c) -> c.getOwnerOfTheCountry() == player)
+                    .findAny();
+            if (findAny.isPresent() && from.getNoOfArmyInCountry() > 2) {
+                setCommand(TestUtils.fortify);
+                Country to = findAny.get();
+                setCommand(from.getAbbreviation());
+                Integer units = (from.getNoOfArmyInCountry() - 1) > 2 ? rand.nextInt(3) + 1 : 1;
+                setCommand(units.toString());
+                setCommand(to.getAbbreviation());
+            } else {
+                setCommand(TestUtils.skip);
+            }
+        } else {
+            setCommand(TestUtils.skip);
         }
     }
 

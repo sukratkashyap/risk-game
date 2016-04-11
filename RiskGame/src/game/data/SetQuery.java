@@ -4,13 +4,12 @@ import game.core.Card;
 import game.core.CardType;
 import game.core.Constants;
 import game.core.Country;
-import game.core.DataFactory;
 import game.core.Player;
 import game.core.PlayerType;
 import game.core.Result;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author Sukrat Kashyap (14200092)
@@ -46,16 +45,73 @@ public class SetQuery extends BaseQuery {
      * @param input
      * @return
      */
-    public Result exchangeInfantryCard(String playerName, String input) {
-        Result result = null;
-        String[] cardTypes = input.toLowerCase().split("");
-        Player player = playerByName(playerName);
-        if (cardTypes.length == 3) {
-
+    public Result<Integer> exchangeInfantryCard(String playerName, String input) {
+        Result<Integer> result = null;
+        if (input.length() == 3) {
+            Player player = playerByName(playerName);
+            if (validateExchangeCardInput(input)) {
+                List<Card> cardList = new ArrayList<>();
+                for (int i = 0; i < input.length(); i++) {
+                    String s = Character.toString(input.charAt(i));
+                    Optional<Card> card = player.getCardList()
+                            .stream()
+                            .filter((c) -> c.toString().equalsIgnoreCase(s))
+                            .findAny();
+                    if (card.isPresent()) {
+                        cardList.add(card.get());
+                    } else {
+                        result = new Result(false, "Card with insignia " + s + " not present");
+                        break;
+                    }
+                }
+                if (cardList.size() == 3) {
+                    for (Card card : cardList) {
+                        player.removeCard(card);
+                    }
+                    int addNoOfArmies = player.addNoOfArmies(getAndMoveGoldenCavalry());
+                    result = new Result(true, "", addNoOfArmies);
+                }
+            } else {
+                result = new Result(false, "Cards must either be all same or all different");
+            }
         } else {
-            result = new Result(false, "3 Cards needed!");
+            result = new Result(false, "Only sets of 3 cards can be exchanged");
         }
         return result;
+    }
+
+    private boolean validateExchangeCardInput(String input) {
+        boolean isValid = true;
+        int totalCards = 3;
+        int noInfantry = 0;
+        int noCavalry = 0;
+        int noArtillery = 0;
+        int noWild = 0;
+        //checking for same input
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c == 'I') {
+                noInfantry++;
+            } else if (c == 'C') {
+                noCavalry++;
+            } else if (c == 'A') {
+                noArtillery++;
+            } else if (c == 'W') {
+                noWild++;
+            } else {
+                isValid = false;
+                break;
+            }
+        }
+        if (isValid) {
+            if (!(noInfantry + noWild == totalCards
+                    || noCavalry + noWild == totalCards
+                    || noArtillery + noWild == totalCards
+                    || (noInfantry == noCavalry || noInfantry == noArtillery || noCavalry == noArtillery))) {
+                isValid = false;
+            }
+        }
+        return isValid;
     }
 
     /**
@@ -67,23 +123,23 @@ public class SetQuery extends BaseQuery {
      */
     public List<Card> assignRandomCardsToPlayer(String playerName, int noOfCards, boolean wildAlso) {
         Player player = playerByName(playerName);
-
         List<Card> cardList = new ArrayList<>(noOfCards);
         for (int i = 0; i < noOfCards; i++) {
-            Card randomCard = cardMap().entrySet()
+            Optional<Card> randomCard = cardMap().entrySet()
                     .parallelStream()
                     .map((entry) -> entry.getValue())
                     .filter((card) -> {
-                        boolean wild = false;
+                        boolean wild = true;
                         if (!wildAlso) {
                             wild = card.getCardType() != CardType.Wild;
                         }
                         return card.isWithPlayer() == false && wild;
                     })
-                    .findAny()
-                    .get();
-            player.addCard(randomCard);
-            cardList.add(randomCard);
+                    .findAny();
+            if (randomCard.isPresent()) {
+                player.addCard(randomCard.get());
+                cardList.add(randomCard.get());
+            }
         }
         return cardList;
     }

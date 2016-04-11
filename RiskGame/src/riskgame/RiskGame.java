@@ -33,12 +33,16 @@ public class RiskGame implements Runnable {
         while (!isGameOver) {
             for (Player player : orderedPlayerList) {
                 _gamePlay.giveReInforcements(player);
+                _gamePlay.exchangeCards(player);
                 _gamePlay.setInforcements(player);
-                _gamePlay.attackOrNot(player);
-                _gamePlay.fortifyOrNot(player);
+                boolean didPlayerOccupyTerritory = _gamePlay.attackOrNot(player);
                 isGameOver = _gamePlay.isGameOver();
                 if (isGameOver) {
                     break;
+                }
+                _gamePlay.fortifyOrNot(player);
+                if (didPlayerOccupyTerritory) {
+                    _gamePlay.drawCardFromDeck(player);
                 }
             }
         }

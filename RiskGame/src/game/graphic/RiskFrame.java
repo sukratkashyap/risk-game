@@ -18,7 +18,7 @@ public class RiskFrame extends JFrame implements IRefreshable {
     private final MessagePanel _messagePanel;
     private final CommandPanel _commandPanel;
 
-    private final Dimension PLAYER_STATS_PANEL = new Dimension(200, Constants.MAP_RATIO_HEIGHT * Constants.MAP_GROWTH_NEW);
+    private final Dimension PLAYER_STATS_PANEL = new Dimension(300, Constants.MAP_RATIO_HEIGHT * Constants.MAP_GROWTH_NEW);
     private final Dimension MAP_PANEL = new Dimension(Constants.MAP_RATIO_WIDTH * Constants.MAP_GROWTH_NEW,
             PLAYER_STATS_PANEL.height);
     private final Dimension MESSAGE_PANEL = new Dimension(PLAYER_STATS_PANEL.width + MAP_PANEL.width, 150);

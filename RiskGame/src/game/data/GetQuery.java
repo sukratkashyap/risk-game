@@ -1,5 +1,6 @@
 package game.data;
 
+import game.core.Card;
 import game.core.Continent;
 import game.core.ContinentId;
 import game.core.Country;
@@ -244,6 +245,14 @@ public class GetQuery extends BaseQuery {
                 .filter((p) -> (!p.getKey().equals(playerName))
                         && (p.getValue().getPlayerType() == PlayerType.MainPlayer))
                 .findFirst().get().getValue();
+    }
+
+    public List<Card> getCardDeck() {
+        return cardMap().entrySet()
+                .parallelStream()
+                .map((c) -> c.getValue())
+                .filter(c -> c.isWithPlayer() == false)
+                .collect(Collectors.toList());
     }
 
 }

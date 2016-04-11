@@ -76,4 +76,7 @@ public abstract class BaseQuery {
         return _dataFactory.getCardMap();
     }
 
+    protected int getAndMoveGoldenCavalry() {
+        return _dataFactory.getAndMoveGoldenCavalryPosition();
+    }
 }

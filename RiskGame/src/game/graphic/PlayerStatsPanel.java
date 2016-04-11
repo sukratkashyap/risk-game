@@ -65,10 +65,12 @@ public class PlayerStatsPanel extends JPanel implements IRefreshable {
             builder.append("Name: ").append(player.getName()).append("<br>");
             builder.append("No of armies: ").append(player.getNoOfArmies()).append("<br>");
             builder.append("Territories: ");
-            builder.append(gq.getCountryListByPlayerName(player.getName())
-                    .stream()
+            builder.append(
+                    gq.getCountryListByPlayerName(player.getName())
+                    .parallelStream()
                     .map((country) -> country.getAbbreviation())
-                    .collect(Collectors.toList()));
+                    .collect(Collectors.toList())).append("<br>");
+            builder.append("Cards: ").append(player.getCardList());
             builder.append("</body></html>");
             _labelList.get(i).setText(builder.toString());
             i++;
