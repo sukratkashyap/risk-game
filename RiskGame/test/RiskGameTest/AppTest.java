@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package RiskGameTest;
 
 import game.core.Constants;
@@ -63,7 +58,7 @@ public class AppTest {
     }
 
     private void setCommand(String command) {
-        riskFrame.getCommandPanel().setCommand(command);
+        riskFrame.getCommandPanel().runCommand(command);
         try {
             Thread.sleep(500);
         } catch (InterruptedException ex) {
@@ -112,7 +107,7 @@ public class AppTest {
                                 .stream().findAny().get();
                         setCommand(cAbb);
 
-                        gq.getPlayerList(PlayerType.NeutralPlayer).stream()
+                        gq.getPlayerListByType(PlayerType.NeutralPlayer).stream()
                                 .forEach((neutral) -> {
                                     String nAbb = gq.getCountryAbbreviationListByPlayerName(neutral.getName())
                                             .stream().findAny().get();

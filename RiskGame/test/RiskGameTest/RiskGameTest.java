@@ -4,10 +4,10 @@ import game.graphic.GUI;
 import riskgame.RiskGame;
 
 /**
- * @author Sukrat Kashyap (14200092)
+ * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
  * @Description
  */
-public class RiskGameTest extends RiskGame implements Runnable {
+public class RiskGameTest extends RiskGame {
 
     public RiskGameTest() {
         super();
@@ -15,10 +15,5 @@ public class RiskGameTest extends RiskGame implements Runnable {
 
     public GUI getGUI() {
         return _gui;
-    }
-
-    @Override
-    public void run() {
-        super.run();
     }
 }
