@@ -7,6 +7,14 @@
 /RiskGame/nbactions.xml
 /RiskGame/.nb-gradle/
 
+/RiskGameBot/nbproject/private/
+/RiskGameBot/build/
+/RiskGameBot/nbbuild/
+/RiskGameBot/dist/
+/RiskGameBot/nbdist/
+/RiskGameBot/nbactions.xml
+/RiskGameBot/.nb-gradle/
+
 #gitignore for Java
 *.class
 
