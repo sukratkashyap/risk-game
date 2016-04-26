@@ -23,8 +23,9 @@ public class Sprint5 {
                 players[playerId].setBot(new YourTeamName(board, players[playerId]));
             }
             if (playerId < GameData.NUM_PLAYERS) {
-                name = ui.inputName(players[playerId]);
-                players[playerId].setName(name);
+                players[playerId].setBot(new YourTeamName(board, players[playerId]));
+//                name = ui.inputName(players[playerId]);
+//                players[playerId].setName(name);
             } else {
                 name = "Neutral " + (playerId - GameData.NUM_PLAYERS + 1);
                 ui.displayName(playerId, name);

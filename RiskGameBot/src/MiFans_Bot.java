@@ -13,13 +13,13 @@ import java.util.stream.Stream;
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)
  * @Description Bot implemented by MiFans
  */
-public class YourTeamName implements Bot {
+public class MiFans_Bot implements Bot {
+
     // The public API of YourTeamName must not change
     // You cannot change any other classes
     // YourTeamName may not alter the state of the board or the player objects
     // It may only inspect the state of the board and the player objects
     // So you can use player.getNumUnits() but you can't use player.addUnits(10000), for example
-
     private BoardAPI _board;
     private PlayerAPI _player;
     private List<Country> _countries = new ArrayList<>();
@@ -31,7 +31,7 @@ public class YourTeamName implements Bot {
     private final int AUS_ID = 3;
     private final int SA_ID = 4;
 
-    public YourTeamName(BoardAPI inBoard, PlayerAPI inPlayer) {
+    public MiFans_Bot(BoardAPI inBoard, PlayerAPI inPlayer) {
         _board = inBoard;
         _player = inPlayer;
         //creating countries list

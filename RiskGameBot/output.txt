@@ -1,0 +1,1269 @@
+
+
+ENTER PLAYER NAMES
+
+Enter the name for player 1 (RED):
+
+> MiFans_BOT
+
+Enter the name for player 2 (BLUE):
+
+> MiFans_BOT
+
+Neutral player 3 is YELLOW
+
+Neutral player 4 is GREEN
+
+Neutral player 5 is MAGENTA
+
+Neutral player 6 is WHITE
+
+
+DRAW TERRITORY CARDS FOR STARTING COUNTRIES
+
+ (RED) draws the Alaska Infantry card
+
+ (RED) draws the Madagascar Infantry card
+
+ (RED) draws the Ontario Cavalry card
+
+ (RED) draws the Japan Infantry card
+
+ (RED) draws the India Infantry card
+
+ (RED) draws the S Africa Artillary card
+
+ (RED) draws the E United States Artillary card
+
+ (RED) draws the E Africa Artillary card
+
+ (RED) draws the Venezuela Artillary card
+
+ (BLUE) draws the Quebec Artillary card
+
+ (BLUE) draws the Indonesia Cavalry card
+
+ (BLUE) draws the S Europe Cavalry card
+
+ (BLUE) draws the Scandinavia Artillary card
+
+ (BLUE) draws the Great Britain Cavalry card
+
+ (BLUE) draws the Egypt Infantry card
+
+ (BLUE) draws the New Guinea Cavalry card
+
+ (BLUE) draws the W United States Infantry card
+
+ (BLUE) draws the Brazil Artillary card
+
+Neutral 1 (YELLOW) draws the W Europe Infantry card
+
+Neutral 1 (YELLOW) draws the Irkutsk Infantry card
+
+Neutral 1 (YELLOW) draws the Siberia Artillary card
+
+Neutral 1 (YELLOW) draws the Mongolia Artillary card
+
+Neutral 1 (YELLOW) draws the N Europe Cavalry card
+
+Neutral 1 (YELLOW) draws the E Australia Infantry card
+
+Neutral 2 (GREEN) draws the China Cavalry card
+
+Neutral 2 (GREEN) draws the Afghanistan Infantry card
+
+Neutral 2 (GREEN) draws the Ural Cavalry card
+
+Neutral 2 (GREEN) draws the NW Territory Artillary card
+
+Neutral 2 (GREEN) draws the Middle East Artillary card
+
+Neutral 2 (GREEN) draws the Central America Cavalry card
+
+Neutral 3 (MAGENTA) draws the N Africa Infantry card
+
+Neutral 3 (MAGENTA) draws the Siam Artillary card
+
+Neutral 3 (MAGENTA) draws the Argentina Infantry card
+
+Neutral 3 (MAGENTA) draws the Ukraine Artillary card
+
+Neutral 3 (MAGENTA) draws the Yakutsk Cavalry card
+
+Neutral 3 (MAGENTA) draws the Peru Cavalry card
+
+Neutral 4 (WHITE) draws the Kamchatka Cavalry card
+
+Neutral 4 (WHITE) draws the W Australia Artillary card
+
+Neutral 4 (WHITE) draws the Greenland Cavalry card
+
+Neutral 4 (WHITE) draws the Congo Cavalry card
+
+Neutral 4 (WHITE) draws the Alberta Infantry card
+
+Neutral 4 (WHITE) draws the Iceland Infantry card
+
+
+ROLL DICE TO SEE WHO REINFORCES THEIR COUNTRIES FIRST
+
+ (RED) rolls [4]
+
+ (BLUE) rolls [5]
+
+ (BLUE) wins roll and goes first
+
+
+REINFORCE INITIAL COUNTRIES
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> NewGuinea 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Siberia 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Kamchatka 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> EAustralia 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Ural 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> WAustralia 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Indonesia 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> WEurope 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Greenland 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> NEurope 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Ural 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> NAfrica 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Greenland 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> NewGuinea 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Mongolia 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Ural 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Iceland 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Ontario 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> NEurope 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Afghanistan 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> NAfrica 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Iceland 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Indonesia 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> NEurope 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Ural 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> NAfrica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Kamchatka 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> EAfrica 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> EAustralia 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Ural 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Congo 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Brazil 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Mongolia 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Ukraine 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Congo 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Mongolia 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Ural 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Ukraine 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Greenland 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Brazil 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> NEurope 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Alberta 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> WEurope 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Congo 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Brazil 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Siberia 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Ukraine 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Iceland 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Mongolia 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Kamchatka 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Brazil 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Mongolia 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> China 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Siam 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Greenland 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> NEurope 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> Afghanistan 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Greenland 1
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Brazil 3
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Siberia 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> CentralAmerica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> NAfrica 1
+
+ (BLUE): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Iceland 1
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 1 (YELLOW) to reinforce by 1 unit
+
+> Mongolia 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 2 (GREEN) to reinforce by 1 unit
+
+> MiddleEast 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 3 (MAGENTA) to reinforce by 1 unit
+
+> Yakutsk 1
+
+ (RED): REINFORCE: Enter a country occupied by Neutral 4 (WHITE) to reinforce by 1 unit
+
+> Greenland 1
+
+
+ROLL DICE TO SEE WHO TAKES THE FIRST TURN
+
+ (RED) rolls [6]
+
+ (BLUE) rolls [2]
+
+ (RED) wins roll and goes first
+
+
+START TURNS
+
+ (RED) has 3 reinforcements.
+
+ (RED) has no cards 
+
+ (RED) cannot exchange any cards
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Peru 3
+
+ (RED) rolls [5, 3, 1] and Neutral 3 (MAGENTA) rolls [5]
+
+ (RED) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Peru 3
+
+ (RED) rolls [5, 5, 4] and Neutral 3 (MAGENTA) rolls [3]
+
+ (RED) loses 0 units and Neutral 3 (MAGENTA) loses 1 unit
+
+ (RED): MOVE IN: How many units do you wish to move in
+
+> 10
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (RED): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (RED) draws the Great Britain Cavalry card
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE) has no cards 
+
+ (BLUE) cannot exchange any cards
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Brazil 3
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Indonesia Siam 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [5, 5, 3] and Neutral 3 (MAGENTA) rolls [6]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Indonesia Siam 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [6, 6, 2] and Neutral 3 (MAGENTA) rolls [4]
+
+ (BLUE) loses 0 units and Neutral 3 (MAGENTA) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Indonesia Siam 3
+
+ (BLUE) rolls [6, 5, 5] and Neutral 3 (MAGENTA) rolls [3]
+
+ (BLUE) loses 0 units and Neutral 3 (MAGENTA) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 1
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> NewGuinea WAustralia 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [4, 4, 3] and Neutral 4 (WHITE) rolls [6]
+
+ (BLUE) loses 1 unit and Neutral 4 (WHITE) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> NewGuinea WAustralia 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [4, 3, 1] and Neutral 4 (WHITE) rolls [3]
+
+ (BLUE) loses 0 units and Neutral 4 (WHITE) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> NewGuinea WAustralia 3
+
+ (BLUE) rolls [6, 5, 1] and Neutral 4 (WHITE) rolls [5]
+
+ (BLUE) loses 0 units and Neutral 4 (WHITE) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 1
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> WAustralia EAustralia 2
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [6, 2] and Neutral 1 (YELLOW) rolls [5, 1]
+
+ (BLUE) loses 0 units and Neutral 1 (YELLOW) loses 2 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> WAustralia EAustralia 2
+
+ (BLUE) rolls [4, 1] and Neutral 1 (YELLOW) rolls [2]
+
+ (BLUE) loses 0 units and Neutral 1 (YELLOW) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 1
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil Argentina 3
+
+ (BLUE) rolls [6, 4, 2] and Neutral 3 (MAGENTA) rolls [6]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil Argentina 3
+
+ (BLUE) rolls [6, 6, 5] and Neutral 3 (MAGENTA) rolls [6]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil Argentina 3
+
+ (BLUE) rolls [6, 5, 3] and Neutral 3 (MAGENTA) rolls [6]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil Argentina 3
+
+ (BLUE) rolls [5, 3, 1] and Neutral 3 (MAGENTA) rolls [2]
+
+ (BLUE) loses 0 units and Neutral 3 (MAGENTA) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 6
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Siam India 2
+
+ (BLUE) rolls [2, 1] and  (RED) rolls [3]
+
+ (BLUE) loses 1 unit and  (RED) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Siam India 1
+
+ (BLUE) rolls [1] and  (RED) rolls [4]
+
+ (BLUE) loses 1 unit and  (RED) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (BLUE): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (BLUE) draws the Ural Cavalry card
+
+ (RED) has 3 reinforcements.
+
+ (RED) has 1 cards : Cavalry 
+
+ (RED) cannot exchange any cards
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Brazil 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [5, 5, 2] and  (BLUE) rolls [3, 1]
+
+ (RED) loses 0 units and  (BLUE) loses 2 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Brazil 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [2, 2, 1] and  (BLUE) rolls [6, 4]
+
+ (RED) loses 2 units and  (BLUE) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Brazil 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [5, 4, 3] and  (BLUE) rolls [4, 4]
+
+ (RED) loses 1 unit and  (BLUE) loses 1 unit
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Brazil 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [4, 3, 2] and  (BLUE) rolls [2, 2]
+
+ (RED) loses 0 units and  (BLUE) loses 2 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Brazil 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (RED) rolls [6, 4, 3] and  (BLUE) rolls [6]
+
+ (RED) loses 1 unit and  (BLUE) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Brazil 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (RED) rolls [6, 3, 3] and  (BLUE) rolls [3]
+
+ (RED) loses 0 units and  (BLUE) loses 1 unit
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Brazil 3
+
+ (RED) rolls [5, 4, 2] and  (BLUE) rolls [6]
+
+ (RED) loses 1 unit and  (BLUE) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela Brazil 3
+
+ (RED) rolls [6, 6, 3] and  (BLUE) rolls [4]
+
+ (RED) loses 0 units and  (BLUE) loses 1 unit
+
+ (RED): MOVE IN: How many units do you wish to move in
+
+> 4
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Argentina 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [4, 4, 4] and  (BLUE) rolls [3, 1]
+
+ (RED) loses 0 units and  (BLUE) loses 2 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Argentina 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [3, 2, 1] and  (BLUE) rolls [6, 6]
+
+ (RED) loses 2 units and  (BLUE) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Argentina 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [4, 3, 2] and  (BLUE) rolls [6, 3]
+
+ (RED) loses 2 units and  (BLUE) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Argentina 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [6, 3, 1] and  (BLUE) rolls [6, 6]
+
+ (RED) loses 2 units and  (BLUE) loses 0 units
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil NAfrica 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [5, 5, 3] and Neutral 3 (MAGENTA) rolls [6, 2]
+
+ (RED) loses 1 unit and Neutral 3 (MAGENTA) loses 1 unit
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (RED): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (RED) draws the Venezuela Artillary card
+
+ (BLUE) has 6 reinforcements.
+
+ (BLUE) has 1 cards : Cavalry 
+
+ (BLUE) cannot exchange any cards
+
+ (BLUE) has 6 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Argentina 3
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Argentina 3
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Argentina Peru 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [6, 5, 3] and  (RED) rolls [4, 4]
+
+ (BLUE) loses 0 units and  (RED) loses 2 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Argentina Peru 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [5, 3, 3] and  (RED) rolls [3, 2]
+
+ (BLUE) loses 0 units and  (RED) loses 2 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Argentina Peru 3
+
+ (BLUE) rolls [5, 4, 3] and  (RED) rolls [1]
+
+ (BLUE) loses 0 units and  (RED) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 5
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [5, 4, 4] and  (RED) rolls [6, 3]
+
+ (BLUE) loses 1 unit and  (RED) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [4, 3, 3] and  (RED) rolls [5, 2]
+
+ (BLUE) loses 1 unit and  (RED) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [6, 5, 2] and  (RED) rolls [6]
+
+ (BLUE) loses 1 unit and  (RED) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (BLUE): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (BLUE) draws the Iceland Infantry card
+
+ (RED) has 3 reinforcements.
+
+ (RED) has 2 cards : Cavalry Artillary 
+
+ (RED) cannot exchange any cards
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil NAfrica 3
+
+ (BLUE): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (RED) rolls [4, 3, 3] and Neutral 3 (MAGENTA) rolls [3, 3]
+
+ (RED) loses 1 unit and Neutral 3 (MAGENTA) loses 1 unit
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (RED): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (BLUE) has 6 reinforcements.
+
+ (BLUE) has 2 cards : Cavalry Infantry 
+
+ (BLUE) cannot exchange any cards
+
+ (BLUE) has 6 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Peru 3
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Argentina 3
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [6, 3, 1] and  (RED) rolls [5, 5]
+
+ (BLUE) loses 1 unit and  (RED) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Argentina Brazil 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [6, 3, 1] and  (RED) rolls [2, 1]
+
+ (BLUE) loses 0 units and  (RED) loses 2 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Argentina Brazil 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [5, 5, 3] and  (RED) rolls [4, 2]
+
+ (BLUE) loses 0 units and  (RED) loses 2 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Argentina Brazil 3
+
+ (BLUE) rolls [5, 3, 2] and  (RED) rolls [2]
+
+ (BLUE) loses 0 units and  (RED) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 2
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [6, 4, 2] and  (RED) rolls [6, 1]
+
+ (BLUE) loses 1 unit and  (RED) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [2, 1, 1] and  (RED) rolls [2, 2]
+
+ (BLUE) loses 2 units and  (RED) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil Venezuela 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [6, 5, 4] and  (RED) rolls [4, 1]
+
+ (BLUE) loses 0 units and  (RED) loses 2 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Peru Venezuela 2
+
+ (BLUE) rolls [4, 2] and  (RED) rolls [2]
+
+ (BLUE) loses 0 units and  (RED) loses 1 unit
+
+ (BLUE): MOVE IN: How many units do you wish to move in
+
+> 1
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil NAfrica 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [4, 4, 3] and Neutral 3 (MAGENTA) rolls [4, 2]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil NAfrica 2
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [4, 2] and Neutral 3 (MAGENTA) rolls [4]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Brazil NAfrica 1
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 1
+
+ (BLUE) rolls [1] and Neutral 3 (MAGENTA) rolls [6]
+
+ (BLUE) loses 1 unit and Neutral 3 (MAGENTA) loses 0 units
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (BLUE): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (BLUE) draws the S Africa Artillary card
+
+ (RED) has 3 reinforcements.
+
+ (RED) has 2 cards : Cavalry Artillary 
+
+ (RED) cannot exchange any cards
+
+ (RED) has 3 reinforcements.
+
+ (RED): REINFORCE: Enter a country to reinforce and the number of units
+
+> EUnitedStates 3
+
+ (RED): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> skip
+
+ (RED): FORTIFY: Enter country to move units from, country to fortify and number of units to move, or enter skip
+
+> skip
+
+ (BLUE) has 9 reinforcements.
+
+ (BLUE) has 3 cards : Cavalry Infantry Artillary 
+
+ (BLUE): EXCHANGE: Enter 3 cards to exchange (just first letter), or enter skip if less than 5 cards
+
+> skip
+
+ (BLUE) has 9 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 4
+
+ (BLUE) has 5 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 2
+
+ (BLUE) has 3 reinforcements.
+
+ (BLUE): REINFORCE: Enter a country to reinforce and the number of units
+
+> Venezuela 3
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela CentralAmerica 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
+> 2
+
+ (BLUE) rolls [5, 4, 2] and Neutral 2 (GREEN) rolls [5, 2]
+
+ (BLUE) loses 1 unit and Neutral 2 (GREEN) loses 1 unit
+
+ (BLUE): ATTACK: Enter country to attack from, country to attack and number of units to use, or enter skip
+
+> Venezuela CentralAmerica 3
+
+ (RED): DEFEND: Enter number of units to defend with
+
