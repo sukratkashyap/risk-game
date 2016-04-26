@@ -1,3 +1,7 @@
+package riskgamebot;
+
+
+
 
 public class Board implements BoardAPI {
 	

@@ -1,3 +1,6 @@
+package riskgamebot;
+
+
 import java.util.*;
 
 public interface PlayerAPI {

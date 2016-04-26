@@ -1,3 +1,7 @@
+package riskgamebot;
+
+
+
 
 public final class GameData {
 

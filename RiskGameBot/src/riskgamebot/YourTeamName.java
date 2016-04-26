@@ -1,3 +1,7 @@
+package riskgamebot;
+
+
+
 // put your code here
 
 public class YourTeamName implements Bot {
