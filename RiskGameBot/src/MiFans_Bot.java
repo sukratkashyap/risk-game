@@ -1,4 +1,3 @@
-package bots;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,11 +6,6 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import riskgamebot.BoardAPI;
-import riskgamebot.Bot;
-import riskgamebot.Deck;
-import riskgamebot.GameData;
-import riskgamebot.PlayerAPI;
 
 // put your code here
 //MiFans
@@ -29,7 +23,6 @@ public class MiFans_Bot implements Bot {
     private BoardAPI _board;
     private PlayerAPI _player;
     private List<Country> _countries = new ArrayList<>();
-    private List<Integer> _continents = new ArrayList<>();
     private Comparator<Country> numUnitCompareDescending = (y, x) -> Integer.compare(x.getNumUnit(), y.getNumUnit());
     private Comparator<Country> attackRatioCompare = (x, y) -> Double.compare(x.attackRatio(), y.attackRatio());
     private Comparator<Country> attackRatioCompareDescending = (y, x) -> Double.compare(x.attackRatio(), y.attackRatio());
@@ -41,11 +34,9 @@ public class MiFans_Bot implements Bot {
     public MiFans_Bot(BoardAPI inBoard, PlayerAPI inPlayer) {
         _board = inBoard;
         _player = inPlayer;
+        //creating countries list
         for (int i = 0; i < GameData.NUM_COUNTRIES; i++) {
             _countries.add(new Country(i));
-        }
-        for (int i = 0; i < GameData.NUM_CONTINENTS; i++) {
-            _continents.add(i);
         }
     }
 
