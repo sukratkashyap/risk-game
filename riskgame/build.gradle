@@ -10,4 +10,12 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.sukratkashyap.riskgame.RiskGame'
+        )
+    }
+}
+
 mainClassName = 'com.sukratkashyap.riskgame.RiskGame'
