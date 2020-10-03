@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'application'
 }
 
 repositories {
@@ -9,3 +9,5 @@ repositories {
 dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
+
+mainClassName = 'com.sukratkashyap.riskgamebot.Sprint5'
