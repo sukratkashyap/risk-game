@@ -1,2 +1,2 @@
 rootProject.name = 'risk-game'
-include 'riskgame'
+include 'riskgame', 'riskgamebot'
