@@ -18,4 +18,7 @@ jar {
     }
 }
 
-mainClassName = 'com.sukratkashyap.riskgame.RiskGame'
+application {
+    mainClass = 'com.sukratkashyap.riskgame.RiskGame'
+    applicationDefaultJvmArgs = ['-Djavax.accessibility.assistive_technologies=java.lang.Object']
+}

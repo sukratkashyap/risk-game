@@ -18,4 +18,7 @@ jar {
     }
 }
 
-mainClassName = 'com.sukratkashyap.riskgamebot.Sprint5'
+application {
+    mainClass = 'com.sukratkashyap.riskgamebot.Sprint5'
+    applicationDefaultJvmArgs = ['-Djavax.accessibility.assistive_technologies=java.lang.Object']
+}
