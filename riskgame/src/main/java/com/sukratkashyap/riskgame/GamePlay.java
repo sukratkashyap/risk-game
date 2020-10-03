@@ -1,4 +1,4 @@
-package riskgame;
+package com.sukratkashyap.riskgame;
 
 import game.core.Card;
 import game.core.Constants;

@@ -1,4 +1,4 @@
-package riskgame;
+package com.sukratkashyap.riskgame;
 
 import game.core.Player;
 import game.graphic.GUI;

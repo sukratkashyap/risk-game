@@ -1,4 +1,4 @@
-package RiskGameTest;
+package riskgametest;
 
 import game.core.Constants;
 import game.core.Country;

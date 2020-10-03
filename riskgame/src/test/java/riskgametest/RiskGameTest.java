@@ -1,4 +1,4 @@
-package RiskGameTest;
+package riskgametest;
 
 import game.graphic.GUI;
 import riskgame.RiskGame;

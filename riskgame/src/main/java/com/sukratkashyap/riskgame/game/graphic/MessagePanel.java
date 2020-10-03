@@ -1,4 +1,4 @@
-package game.graphic;
+package com.sukratkashyap.riskgame.game.graphic;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

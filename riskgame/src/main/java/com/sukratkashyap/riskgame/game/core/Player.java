@@ -1,4 +1,4 @@
-package game.core;
+package com.sukratkashyap.riskgame.game.core;
 
 import java.awt.Color;
 import java.util.ArrayList;

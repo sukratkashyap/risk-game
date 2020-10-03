@@ -1,4 +1,4 @@
-package game.graphic;
+package com.sukratkashyap.riskgame.game.graphic;
 
 import game.core.IValidationInput;
 import game.core.Result;

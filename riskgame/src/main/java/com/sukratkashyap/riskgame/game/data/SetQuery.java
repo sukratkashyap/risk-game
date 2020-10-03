@@ -1,4 +1,4 @@
-package game.data;
+package com.sukratkashyap.riskgame.game.data;
 
 import game.core.Card;
 import game.core.CardType;
