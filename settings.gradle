@@ -1,0 +1,2 @@
+rootProject.name = 'risk-game'
+include 'riskgame'

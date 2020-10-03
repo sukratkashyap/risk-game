@@ -1,0 +1,4 @@
+allprojects {
+    group = 'com.sukratkashyap'
+    version = '1.0'
+}
