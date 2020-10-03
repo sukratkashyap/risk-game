@@ -22,3 +22,7 @@ application {
     mainClass = 'com.sukratkashyap.riskgame.RiskGame'
     applicationDefaultJvmArgs = ['-Djavax.accessibility.assistive_technologies=java.lang.Object']
 }
+
+test {
+    systemProperty "javax.accessibility.assistive_technologies", "java.lang.Object"
+}
