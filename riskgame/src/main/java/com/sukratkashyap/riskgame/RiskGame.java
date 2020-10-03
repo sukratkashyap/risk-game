@@ -1,7 +1,7 @@
 package com.sukratkashyap.riskgame;
 
-import game.core.Player;
-import game.graphic.GUI;
+import com.sukratkashyap.riskgame.game.core.Player;
+import com.sukratkashyap.riskgame.game.graphic.GUI;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
 package com.sukratkashyap.riskgame.game.graphic;
 
-import game.data.GetQuery;
+import com.sukratkashyap.riskgame.game.data.GetQuery;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class MapPanel extends JPanel implements IRefreshable {
 
         _imageComponent = new ImageComponent(width, height);
         super.add(_imageComponent, 0, 0);
-        
+
         _lineComponent = new LineComponent(width, height);
         super.add(_lineComponent, 1, 0);
         GetQuery query = new GetQuery();

@@ -1,12 +1,12 @@
 package riskgametest;
 
-import game.core.Constants;
-import game.core.Country;
-import game.core.Player;
-import game.core.PlayerType;
-import game.data.GetQuery;
-import game.graphic.GUI;
-import game.graphic.RiskFrame;
+import com.sukratkashyap.riskgame.game.core.Constants;
+import com.sukratkashyap.riskgame.game.core.Country;
+import com.sukratkashyap.riskgame.game.core.Player;
+import com.sukratkashyap.riskgame.game.core.PlayerType;
+import com.sukratkashyap.riskgame.game.data.GetQuery;
+import com.sukratkashyap.riskgame.game.graphic.GUI;
+import com.sukratkashyap.riskgame.game.graphic.RiskFrame;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;

@@ -1,12 +1,12 @@
 package com.sukratkashyap.riskgame.game.data;
 
-import game.core.Card;
-import game.core.Continent;
-import game.core.ContinentId;
-import game.core.Country;
-import game.core.CountryId;
-import game.core.DataFactory;
-import game.core.Player;
+import com.sukratkashyap.riskgame.game.core.Card;
+import com.sukratkashyap.riskgame.game.core.Continent;
+import com.sukratkashyap.riskgame.game.core.ContinentId;
+import com.sukratkashyap.riskgame.game.core.Country;
+import com.sukratkashyap.riskgame.game.core.CountryId;
+import com.sukratkashyap.riskgame.game.core.DataFactory;
+import com.sukratkashyap.riskgame.game.core.Player;
 import java.util.Map;
 
 /**

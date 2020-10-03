@@ -1,12 +1,12 @@
 package com.sukratkashyap.riskgame.game.data;
 
-import game.core.Card;
-import game.core.CardType;
-import game.core.Constants;
-import game.core.Country;
-import game.core.Player;
-import game.core.PlayerType;
-import game.core.Result;
+import com.sukratkashyap.riskgame.game.core.Card;
+import com.sukratkashyap.riskgame.game.core.CardType;
+import com.sukratkashyap.riskgame.game.core.Constants;
+import com.sukratkashyap.riskgame.game.core.Country;
+import com.sukratkashyap.riskgame.game.core.Player;
+import com.sukratkashyap.riskgame.game.core.PlayerType;
+import com.sukratkashyap.riskgame.game.core.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

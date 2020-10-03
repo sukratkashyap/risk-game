@@ -1,7 +1,7 @@
 package com.sukratkashyap.riskgame.game.data;
 
-import game.core.IValidationInput;
-import game.core.Result;
+import com.sukratkashyap.riskgame.game.core.IValidationInput;
+import com.sukratkashyap.riskgame.game.core.Result;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

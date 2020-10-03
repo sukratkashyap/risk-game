@@ -1,6 +1,6 @@
 package com.sukratkashyap.riskgame.game.graphic;
 
-import game.data.GetQuery;
+import com.sukratkashyap.riskgame.game.data.GetQuery;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;

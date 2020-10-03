@@ -1,6 +1,6 @@
 package com.sukratkashyap.riskgame.game.graphic;
 
-import game.core.Country;
+import com.sukratkashyap.riskgame.game.core.Country;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;

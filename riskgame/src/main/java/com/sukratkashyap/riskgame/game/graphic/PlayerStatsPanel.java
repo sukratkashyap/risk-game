@@ -1,7 +1,7 @@
 package com.sukratkashyap.riskgame.game.graphic;
 
-import game.core.Player;
-import game.data.GetQuery;
+import com.sukratkashyap.riskgame.game.core.Player;
+import com.sukratkashyap.riskgame.game.data.GetQuery;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;

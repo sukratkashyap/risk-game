@@ -1,6 +1,6 @@
 package com.sukratkashyap.riskgame.game.graphic;
 
-import game.core.Constants;
+import com.sukratkashyap.riskgame.game.core.Constants;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

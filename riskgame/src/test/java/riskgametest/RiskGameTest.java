@@ -1,7 +1,7 @@
 package riskgametest;
 
-import game.graphic.GUI;
-import riskgame.RiskGame;
+import com.sukratkashyap.riskgame.game.graphic.GUI;
+import com.sukratkashyap.riskgame.RiskGame;
 
 /**
  * @author MiFans (Sukrat Kashyap - 14200092, Zhesi Ning - 12252511)

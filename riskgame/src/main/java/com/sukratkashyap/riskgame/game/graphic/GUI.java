@@ -1,7 +1,7 @@
 package com.sukratkashyap.riskgame.game.graphic;
 
-import game.core.IValidationInput;
-import game.core.Result;
+import com.sukratkashyap.riskgame.game.core.IValidationInput;
+import com.sukratkashyap.riskgame.game.core.Result;
 import java.awt.event.WindowEvent;
 
 /**
@@ -48,7 +48,7 @@ public class GUI implements IRefreshable {
     /**
      * repaint and revalidate the frame.
      */
-   
+
     @Override
     public void refresh() {
         _riskFrame.refresh();
