@@ -4,6 +4,8 @@ This repo implements the [Risk Board Game](https://en.wikipedia.org/wiki/Risk_%2
 
 It also contains a AI bot which can be used to play with the user. NOTE: The AI is not attached to the RiskGame app.
 
+![Risk Game Screenshot](./riskgame.png)
+
 ## Requirements
 
 To run the game you need
