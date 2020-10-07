@@ -26,6 +26,16 @@ gradle build
 
 ### Run
 
+#### Run the game
+
 ```bash
 gradle run
+# or
+gradle riskgame:run
+```
+
+#### Run the bot
+
+```bash
+gradle riskgamebot:run
 ```
