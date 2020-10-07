@@ -33,8 +33,9 @@ public class ImageComponent extends JComponent implements IRefreshable {
         g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("RiskMap.jpg"));
+            img = ImageIO.read(getClass().getResource("/riskmap.jpg"));
         } catch (IOException e) {
+            System.out.println("Could not load the riskmap image:" + e.getMessage());
         }
         g2.drawImage(img, 0, 0, _width, _height, this);
     }
